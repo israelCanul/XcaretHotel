@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        style="@style/AppTheme.TextContent"
+        android:textColor="@color/colorTextVisitorPicker"
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_adults"
+        app:layout_constraintTop_toTopOf="@id/decrement"
+        app:layout_constraintBottom_toBottomOf="@id/decrement"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.CircleView
+        android:id="@+id/decrement"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="@dimen/margin_large"
+        app:shape_circle_borderWidth="0dp"
+        app:shape_circle_borderColor="@color/colorPlusMinusOutLine"
+        app:layout_constraintTop_toTopOf="@id/number"
+        app:layout_constraintBottom_toBottomOf="@id/number"
+        app:layout_constraintRight_toLeftOf="@id/number">
+
+        <ImageView
+            android:src="@drawable/ic_minus"
+            app:tint="@color/colorIconMinus"
+            android:padding="@dimen/margin_default"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.CircleView>
+
+
+    <TextView
+        android:id="@+id/number"
+        style="@style/AppTheme.TextContent"
+        android:textColor="@color/colorInputAgeText"
+        android:gravity="center"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="@dimen/margin_default"
+        app:layout_constraintRight_toLeftOf="@id/increment"/>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.CircleView
+        android:id="@+id/increment"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="@dimen/margin_default"
+        app:shape_circle_borderWidth="0dp"
+        app:shape_circle_borderColor="@color/colorPlusMinusOutLine"
+        app:layout_constraintTop_toTopOf="@id/number"
+        app:layout_constraintBottom_toBottomOf="@id/number"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:src="@drawable/ic_plus"
+            app:tint="@color/colorIconPlus"
+            android:padding="@dimen/margin_default"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.CircleView>
+
+
+</merge>

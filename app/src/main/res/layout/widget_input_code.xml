@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    tools:parentTag="android.widget.LinearLayout"
+    android:gravity="center"
+    android:paddingVertical="@dimen/margin_short"
+    android:layout_height="wrap_content">
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutCode1"
+        android:layout_width="@dimen/width_input_code"
+        android:layout_height="@dimen/height_input_code"
+        android:elevation="0dp"
+        android:layout_marginHorizontal="@dimen/margin_mini_x"
+        app:shape_roundRect_borderColor="@color/colorInputOutline"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_default"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomLeftRadius="@dimen/margin_default">
+
+        <EditText
+            android:textSize="@dimen/size_text_code"
+            android:id="@+id/etCode1"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/colorTextPrimary"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:background="@color/colorInputBackground"
+            android:padding="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutCode2"
+        android:layout_width="@dimen/width_input_code"
+        android:layout_height="@dimen/height_input_code"
+        android:elevation="0dp"
+        android:imeOptions="actionNext"
+        android:layout_marginHorizontal="@dimen/margin_mini_x"
+        app:shape_roundRect_borderColor="@color/colorInputOutline"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_default"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomLeftRadius="@dimen/margin_default">
+
+        <EditText
+            android:textSize="@dimen/size_text_code"
+            android:id="@+id/etCode2"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/colorTextPrimary"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:background="@color/colorInputBackground"
+            android:padding="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutCode3"
+        android:layout_width="@dimen/width_input_code"
+        android:layout_height="@dimen/height_input_code"
+        android:elevation="0dp"
+        android:layout_marginHorizontal="@dimen/margin_mini_x"
+        app:shape_roundRect_borderColor="@color/colorInputOutline"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_default"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomLeftRadius="@dimen/margin_default">
+
+        <EditText
+            android:textSize="@dimen/size_text_code"
+            android:id="@+id/etCode3"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/colorTextPrimary"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:background="@color/colorInputBackground"
+            android:padding="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutCode4"
+        android:layout_width="@dimen/width_input_code"
+        android:layout_height="@dimen/height_input_code"
+        android:elevation="0dp"
+        android:layout_marginHorizontal="@dimen/margin_mini_x"
+        app:shape_roundRect_borderColor="@color/colorInputOutline"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_default"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomLeftRadius="@dimen/margin_default">
+
+        <EditText
+            android:textSize="@dimen/size_text_code"
+            android:id="@+id/etCode4"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/colorTextPrimary"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:background="@color/colorInputBackground"
+            android:padding="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutCode5"
+        android:layout_width="@dimen/width_input_code"
+        android:layout_height="@dimen/height_input_code"
+        android:elevation="0dp"
+        android:layout_marginHorizontal="@dimen/margin_mini_x"
+        app:shape_roundRect_borderColor="@color/colorInputOutline"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_default"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomLeftRadius="@dimen/margin_default">
+
+        <EditText
+            android:textSize="@dimen/size_text_code"
+            android:id="@+id/etCode5"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/colorTextPrimary"
+            android:inputType="number"
+            android:imeOptions="actionNext"
+            android:background="@color/colorInputBackground"
+            android:padding="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutCode6"
+        android:layout_width="@dimen/width_input_code"
+        android:layout_height="@dimen/height_input_code"
+        android:elevation="0dp"
+        android:layout_marginHorizontal="@dimen/margin_mini_x"
+        app:shape_roundRect_borderColor="@color/colorInputOutline"
+        app:shape_roundRect_borderWidth="1dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_default"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+        app:shape_roundRect_bottomLeftRadius="@dimen/margin_default">
+
+        <EditText
+            android:textSize="@dimen/size_text_code"
+            android:id="@+id/etCode6"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="@color/colorTextPrimary"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:background="@color/colorInputBackground"
+            android:padding="@dimen/margin_default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+</merge>

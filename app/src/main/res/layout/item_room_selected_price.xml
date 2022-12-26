@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.RoomType" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingVertical="@dimen/margin_short_x"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+            android:id="@+id/containerDetailSuite"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iconRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/amenity_room_icon"
+                android:layout_marginStart="@dimen/margin_large"
+                app:tint="@color/colorTextBalanceTitle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lblSuite"
+                app:layout_constraintBottom_toBottomOf="@id/lblSuite"/>
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+
+                android:id="@+id/lblSuite"
+                android:textStyle="bold"
+                style="@style/AppTheme.TextContentMin"
+                android:textColor="@color/colorTextBalanceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_suite"
+                android:layout_marginStart="@dimen/margin_short"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/iconRoom"
+                app:key="@string/rkey_lbl_suite"/>
+
+            <TextView
+
+                android:id="@+id/lblRumberRoom"
+                android:textStyle="bold"
+                style="@style/AppTheme.TextContentMin"
+                android:textColor="@color/colorTextBalanceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{` ` + (itemViewModel.adapterPosition+1) + ` `}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/lblSuite"/>
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@{itemViewModel.expandable ? @drawable/ic_up : @drawable/ic_down}"
+                android:layout_marginStart="@dimen/margin_short"
+                app:tint="@color/colorTextBalanceTitle"
+                app:layout_constraintTop_toTopOf="@id/lblRumberRoom"
+                app:layout_constraintBottom_toBottomOf="@id/lblRumberRoom"
+                app:layout_constraintLeft_toRightOf="@id/lblRumberRoom"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            style="@style/AppTheme.TextContentMin"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextBalanceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:text="@{itemViewModel.getRatePlan(true).amountFormat() + itemViewModel.getRatePlan(true).currency.toUpperCase()}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPriceForNight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:genericAdapter="@{itemViewModel.princeNigthsAdapter}"
+            android:orientation="vertical"
+            android:visibility="@{itemViewModel.expandable ? View.VISIBLE : View.GONE}"
+            android:layout_marginTop="@dimen/margin_mini"
+            app:hasFixedSize="@{true}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/containerDetailSuite"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

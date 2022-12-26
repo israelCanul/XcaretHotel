@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="android.view.Gravity"/>
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.AfiClass" />
+    </data>
+
+    <RelativeLayout
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        android:id="@+id/layoutContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/margin_short"
+        android:focusable="false">
+
+        <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+            android:id="@+id/layoutActive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{itemViewModel.selected ? View.VISIBLE : View.INVISIBLE}"
+            app:neomorph_elevation="@dimen/elevation_short"
+            android:layout_marginVertical="@dimen/margin_mini"
+            app:neomorph_shadow_type="outer"
+            app:neomorph_view_type="rectangular"
+            app:neomorph_corner_radius="@dimen/corner_filter_generic"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:neomorph_highlight_color="@color/colorShadowLightTrasparency"
+            app:neomorph_shadow_color="@color/colorShadowDark1"
+            app:neumorph_shapeType="flat">
+
+            <RelativeLayout
+                android:background="@drawable/gradient_generic_filter"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/imgIconActive"
+                    app:tint="@color/colorFilterIcon"
+                    android:src="@{itemViewModel.icon, default=@drawable/amenity_room_icon}"
+                    android:layout_marginTop="@dimen/margin_short"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:padding="@dimen/margin_short"
+                    android:layout_weight=".5"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtTitleActive"
+                    android:textAlignment="center"
+                    android:layout_centerInParent="true"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:drawableTopCompat="@{itemViewModel.icon}"
+                    android:textBreakLine="@{itemViewModel.lang.name}"
+                    android:textColor="@color/colorFilterIcon"
+                    app:drawableTint="@color/colorFilterIcon"
+                    android:textSize="@dimen/size_text_content"
+                    android:layout_marginBottom="@dimen/margin_short"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+        <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+            android:id="@+id/layoutInactive"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{itemViewModel.selected ? View.INVISIBLE : View.VISIBLE}"
+            android:layout_marginHorizontal="@dimen/margin_short"
+            android:layout_marginVertical="@dimen/margin_default"
+            app:shape_roundRect_bottomLeftRadius="@dimen/corner_filter_generic"
+            app:shape_roundRect_bottomRightRadius="@dimen/corner_filter_generic"
+            app:shape_roundRect_topLeftRadius="@dimen/corner_filter_generic"
+            app:shape_roundRect_topRightRadius="@dimen/corner_filter_generic"
+            app:shape_roundRect_borderWidth="1dp"
+            app:shape_roundRect_borderColor="@color/colorButtonBrownOutlineDisabled">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtTitle"
+                    style="@style/AppTheme.TextContent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textBreakLine="@{itemViewModel.lang.name}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="@dimen/margin_short"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.Place" />
+    </data>
+
+    <RelativeLayout
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        android:id="@+id/layoutContent"
+        android:layout_width="wrap_content"
+        android:layout_height="135dp"
+        android:focusable="false">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_short"
+            app:cardBackgroundColor="@color/colorItemMapBackground"
+            android:layout_marginVertical="@dimen/margin_default"
+            app:cardElevation="@dimen/margin_short"
+            app:cardCornerRadius="@dimen/margin_large"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLineHelper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".87"
+                    />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="2dp"
+                    app:layout_constraintWidth_percent=".35"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:cardCornerRadius="@dimen/margin_large"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:scaleType="centerCrop"
+                        android:id="@+id/image_view"
+                        android:reference="@{itemViewModel.hotelCode + `/` + FirebaseReference.PLACE}"
+                        android:thumb="@{itemViewModel.lang.image}"
+                        android:onlyThumbs="@{true}"
+                        android:default="@{itemViewModel.hotelCode + `_map_default`}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    style="@style/AppTheme.TitleH2"
+                    android:textColor="@color/colorMapTitle"
+                    android:textStyle="bold"
+                    android:text="@{itemViewModel.lang.title}"
+                    android:layout_width="0dp"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/imgBuilding"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"/>
+
+                <TextView
+                    android:id="@+id/txtSubTitle"
+                    style="@style/AppTheme.TextContent"
+                    android:textColor="@color/colorMapTitle"
+                    android:text="@{itemViewModel.category.lang.title}"
+                    android:visibility="@{itemViewModel.building ? View.INVISIBLE : View.VISIBLE}"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    app:layout_constraintTop_toBottomOf="@id/txtTitle"
+                    app:layout_constraintRight_toLeftOf="@id/imgBuilding"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"/>
+
+                <View
+                    android:id="@+id/separator"
+                    android:background="@color/colorMapSeparator"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_short"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    app:layout_constraintTop_toBottomOf="@id/txtSubTitle"
+                    app:layout_constraintRight_toLeftOf="@id/imgBuilding"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"
+                    />
+
+                <TextView
+                    android:id="@+id/txtExtra1"
+                    style="@style/AppTheme.TextContent"
+                    android:textColor="@color/colorMapExtraInfo"
+                    android:text="@{itemViewModel.extraInfoBuilding.levels.toString()}"
+                    android:visibility="@{itemViewModel.building ? View.VISIBLE : View.INVISIBLE }"
+                    android:layout_width="wrap_content"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_default"
+                    app:layout_constraintRight_toLeftOf="@id/lblFloors"
+                    app:layout_constraintTop_toBottomOf="@id/separator"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"/>
+                <TextView
+                    android:id="@+id/txtExtraRV"
+                    style="@style/AppTheme.TextContent"
+                    android:textColor="@color/colorMapExtraInfo"
+                    android:text="@{itemViewModel.location.lang.title}"
+                    android:visibility="@{itemViewModel.building ? View.GONE : View.VISIBLE }"
+                    android:layout_width="wrap_content"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_default"
+                    app:layout_constraintRight_toLeftOf="@id/lblFloors"
+                    app:layout_constraintTop_toBottomOf="@id/separator"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"/>
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:id="@+id/lblFloors"
+                    style="@style/AppTheme.TextContent"
+                    android:textColor="@color/colorMapExtraInfo"
+                    android:layout_width="0dp"
+                    android:lines="1"
+                    android:visibility="@{itemViewModel.building ? View.VISIBLE : View.INVISIBLE}"
+                    android:text="@string/lbl_floors"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="@dimen/margin_default"
+                    app:layout_constraintLeft_toRightOf="@id/txtExtra1"
+                    app:layout_constraintTop_toBottomOf="@id/separator"
+                    app:layout_constraintRight_toLeftOf="@id/imgBuilding"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:key="@string/rkey_levels"/>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/container2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    app:layout_constraintTop_toBottomOf="@id/txtExtra1"
+                    app:layout_constraintLeft_toRightOf="@id/imageView"
+                    app:layout_constraintRight_toLeftOf="@id/imgBuilding">
+                    <TextView
+                        android:id="@+id/txtExtra2"
+                        style="@style/AppTheme.TextContent"
+                        android:textColor="@color/colorMapExtraInfo"
+                        android:text="@{itemViewModel.building ? itemViewModel.extraInfoBuilding.num_rooms.toString() : itemViewModel.formatLocation}"
+                        android:layout_width="wrap_content"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/txtExtra1"
+                        app:layout_constraintLeft_toRightOf="@id/imageView"/>
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:id="@+id/lblRooms"
+                        style="@style/AppTheme.TextContent"
+                        android:textColor="@color/colorMapExtraInfo"
+                        android:layout_width="wrap_content"
+                        android:minWidth="10dp"
+                        android:lines="1"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:visibility="@{itemViewModel.building ? View.VISIBLE : View.GONE}"
+                        android:text="@string/lbl_rooms"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+
+                        app:layout_constraintLeft_toRightOf="@id/txtExtra2"
+                        app:layout_constraintTop_toBottomOf="@id/txtExtra1"
+                        app:layout_constraintRight_toLeftOf="@id/guideLineHelper"
+                        app:key="@string/rkey_room_title"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <Space
+                    android:id="@+id/spaceBottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_default"
+                    app:layout_constraintTop_toBottomOf="@id/container2"/>
+
+                <ImageView
+                    android:id="@+id/imgBuilding"
+                    android:src="@{itemViewModel.getCorrectLocation(), default=@drawable/filter_default }"
+                    android:visibility="@{itemViewModel.showIcon() ? View.VISIBLE : View.INVISIBLE}"
+                    app:tint="@{itemViewModel.location.colorMarkerMap}"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="@dimen/margin_default"
+                    android:layout_marginEnd="@dimen/margin_short"
+                    app:layout_constraintWidth_percent=".1"
+                    app:layout_constraintHeight_percent=".4"
+
+                    app:layout_constraintBottom_toBottomOf="@id/spaceBottom"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</layout>

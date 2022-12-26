@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.SuiteQuotes" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'>
+
+        <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+            android:id="@+id/selectedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:visibility="@{itemViewModel.selected ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_borderColor="@color/colorButtonBlueOutLine"
+            app:shape_roundRect_borderWidth="0dp"
+            app:shape_roundRect_bottomLeftRadius="@dimen/margin_medium"
+            app:shape_roundRect_bottomRightRadius="@dimen/margin_medium"
+            app:shape_roundRect_topLeftRadius="@dimen/margin_medium"
+            app:shape_roundRect_topRightRadius="@dimen/margin_medium">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorButtonBlue"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/margin_short">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_suite"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorButtonText"
+                        android:textStyle="bold"
+                        app:key="@string/rkey_lbl_suite"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_short"
+                        android:text="@{itemViewModel.numberToString()}"
+                        android:textColor="@color/colorButtonText"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.adultsToString()}"
+                        android:textColor="@color/colorButtonText" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_mini"
+                        android:text="@string/lbl_adults"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorButtonText"
+                        app:key="@string/rkey_lbl_adults" />
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:text="-"
+                        android:textColor="@color/colorButtonText"
+                        android:visibility="@{itemViewModel.children > 0 ? View.VISIBLE : View.GONE}" />
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.childrenToString()}"
+                        android:textColor="@color/colorButtonText"
+                        android:visibility="@{itemViewModel.children > 0 ? View.VISIBLE : View.GONE}" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_mini"
+                        android:text="@string/lbl_children"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorButtonText"
+                        android:visibility="@{itemViewModel.children > 0 ? View.VISIBLE : View.GONE}"
+                        app:key="@string/rkey_lbl_children" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="@{itemViewModel.suiteNameSelected}"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorButtonText"
+                        android:visibility="@{itemViewModel.suiteNameSelected.empty ? View.INVISIBLE : View.VISIBLE}" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:key="rkey_lbl_select_your_room"
+                        android:text="@string/lbl_select_your_room"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextNotAvailable"
+                        android:visibility="@{itemViewModel.suiteNameSelected.empty ? View.VISIBLE : View.INVISIBLE}" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+        <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+            android:id="@+id/unSelectedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:visibility="@{itemViewModel.selected ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_borderColor="@color/colorButtonBlueOutLine"
+            app:shape_roundRect_borderWidth="1dp"
+            app:shape_roundRect_bottomLeftRadius="@dimen/margin_medium"
+            app:shape_roundRect_bottomRightRadius="@dimen/margin_medium"
+            app:shape_roundRect_topLeftRadius="@dimen/margin_medium"
+            app:shape_roundRect_topRightRadius="@dimen/margin_medium">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/margin_short">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_suite"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextSecondary"
+                        android:textStyle="bold"
+                        app:key="@string/rkey_lbl_suite"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_short"
+                        android:text="@{itemViewModel.numberToString()}"
+                        android:textColor="@color/colorTextSecondary"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.adultsToString()}"
+                        android:textColor="@color/colorTextSecondary" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_mini"
+                        android:text="@string/lbl_adults"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextSecondary"
+                        app:key="@string/rkey_lbl_adults" />
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:text="-"
+                        android:textColor="@color/colorTextSecondary"
+                        android:visibility="@{itemViewModel.children > 0 ? View.VISIBLE : View.GONE}" />
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{itemViewModel.childrenToString()}"
+                        android:textColor="@color/colorTextSecondary"
+                        android:visibility="@{itemViewModel.children > 0 ? View.VISIBLE : View.GONE}" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_mini"
+                        android:text="@string/lbl_children"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextSecondary"
+                        android:visibility="@{itemViewModel.children > 0 ? View.VISIBLE : View.GONE}"
+                        app:key="@string/rkey_lbl_children" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="@{itemViewModel.suiteNameSelected}"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextSecondary"
+                        android:visibility="@{itemViewModel.suiteNameSelected.empty ? View.INVISIBLE : View.VISIBLE}" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:key="rkey_lbl_select_your_room"
+                        android:text="@string/lbl_select_your_room"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextNotAvailable"
+                        android:visibility="@{itemViewModel.suiteNameSelected.empty &amp;&amp; !itemViewModel.selected ? View.VISIBLE : View.INVISIBLE}" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.data.entity.PaymentBankInstallmentEntity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutContent"
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        android:layout_margin="@dimen/margin_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+            android:layout_width="100dp"
+            android:id="@+id/msiSelected"
+            android:layout_height="wrap_content"
+            android:visibility="@{itemViewModel.selected ? View.VISIBLE : View.GONE}"
+            app:shape_roundRect_bottomLeftRadius="@dimen/margin_default"
+            app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+            app:shape_roundRect_topRightRadius="@dimen/margin_default"
+            app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@color/colorButtonBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/contentSelected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_short"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <TextView
+                        style="@style/AppTheme.TitleH2"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorButtonText"
+                        android:text="@{itemViewModel.installments + ` `}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:layout_width="wrap_content"
+                        style="@style/AppTheme.TitleH2"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorButtonText"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_msi"
+                        app:key="@string/rkey_lbl_msi"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicatorSelected"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/colorButtonText"
+                    android:layout_marginTop="@dimen/margin_mini"
+                    app:layout_constraintWidth_percent="0.6"
+                    app:layout_constraintTop_toBottomOf="@id/contentSelected"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_short"
+                    app:layout_constraintTop_toBottomOf="@id/indicatorSelected"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+        <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+            android:layout_width="100dp"
+            android:id="@+id/msiUnselected"
+            android:layout_height="wrap_content"
+            android:visibility="@{itemViewModel.selected ? View.GONE : View.VISIBLE}"
+            app:shape_roundRect_bottomLeftRadius="@dimen/margin_default"
+            app:shape_roundRect_bottomRightRadius="@dimen/margin_default"
+            app:shape_roundRect_topRightRadius="@dimen/margin_default"
+            app:shape_roundRect_topLeftRadius="@dimen/margin_default"
+            app:shape_roundRect_borderColor="@color/colorButtonBlueOutLine"
+            app:shape_roundRect_borderWidth="1dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/contentUnselected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_short"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <TextView
+                        style="@style/AppTheme.TitleH2"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextSecondary"
+                        android:text="@{itemViewModel.installments + ` `}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:layout_width="wrap_content"
+                        style="@style/AppTheme.TitleH2"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextSecondary"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_msi"
+                        app:key="@string/rkey_lbl_msi"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/indicatorUnselected"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/colorTextSecondary"
+                    android:layout_marginTop="@dimen/margin_mini"
+                    app:layout_constraintWidth_percent="0.6"
+                    app:layout_constraintTop_toBottomOf="@id/contentUnselected"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_short"
+                    app:layout_constraintTop_toBottomOf="@id/indicatorUnselected"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

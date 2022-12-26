@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="com.xcaret.xcaret_hotel.view.config.Constants"/>
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <variable
+            name="viewModel"
+            type="com.xcaret.xcaret_hotel.view.category.vm.WorkShopDetailViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/colorBackground2"
+        tools:context=".view.category.ui.WorkShopDetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:elevation="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shape_roundRect_bottomLeftRadius="@dimen/radius_header_home"
+                app:shape_roundRect_bottomRightRadius="@dimen/radius_header_home"
+                app:shape_roundRect_borderColor="@android:color/white"
+                app:shape_roundRect_borderWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivHeader"
+                        android:referenceByHotel="@{FirebaseReference.ACTIVITY}"
+                        android:imageByHotel="@{viewModel.activity.lang.image}"
+                        android:src="@drawable/hxm_default_ftvm_image"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <View
+                        android:background="@drawable/shadow_views_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintHeight_percent="0.4"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/AppTheme.TitleH1"
+                        android:textColor="@android:color/white"
+                        android:text="@{viewModel.activity.lang.title}"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default"
+                        app:layout_constraintBottom_toTopOf="@id/txtSubTitle"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtSubTitle"
+                        style="@style/AppTheme.TextContent"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:layout_marginBottom="@dimen/margin_default"
+                        android:layout_alignParentBottom="true"
+                        android:text="@{viewModel.category.lang.title}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/subHeaderLayout"
+                app:layout_constraintTop_toBottomOf="@id/headerLayout"
+                android:paddingVertical="@dimen/margin_short_x"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtGastronomy"
+                    style="@style/AppTheme.TextContent"
+                    android:layout_margin="@dimen/margin_default"
+                    android:text="@{viewModel.location.lang.title}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/btnGoMap"
+                    android:layout_marginVertical="@dimen/margin_medium"
+                    android:layout_marginHorizontal="@dimen/margin_large_x"
+                    android:src="@drawable/ic_llevame"
+                    app:tint="@color/colorIconClose"
+                    android:goToMap="@{viewModel.activity.location.uid}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.callFromMap ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                app:layout_constraintBottom_toBottomOf="@id/headerLayout"
+                android:background="@drawable/shadow_top_header"
+                android:layout_width="match_parent"
+                android:translationY="10dp"
+                android:layout_height="@dimen/height_shadow_largex"/>
+
+            <TextView
+
+                android:id="@+id/txtDescription"
+                style="@style/AppTheme.TextContent"
+                android:lineSpacingExtra="@dimen/size_space_text_default"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="@{viewModel.activity.lang.longDescription}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subHeaderLayout"/>
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:id="@+id/txtInvite"
+                style="@style/AppTheme.TitleH1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_default"
+                android:text="@string/lbl_invited_events"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription"
+                tools:layout_editor_absoluteX="10dp"
+                app:key="@string/rkey_lbl_invited_events"/>
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.TextContent"
+                android:layout_margin="@dimen/margin_default"
+                android:text="@string/lbl_invited_events_msg"
+                android:id="@+id/txtSubText"
+                app:layout_constraintTop_toBottomOf="@id/txtInvite"
+                app:key="@string/rkey_lbl_invited_events_msg"
+                />
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:id="@+id/roundContainer"
+                app:shape_roundRect_borderColor="@color/color14"
+                app:shape_roundRect_borderWidth="1dp"
+                app:shape_roundRect_bottomLeftRadius="@dimen/radius_default"
+                app:shape_roundRect_bottomRightRadius="@dimen/radius_default"
+                app:shape_roundRect_topLeftRadius="@dimen/radius_default"
+                app:shape_roundRect_topRightRadius="@dimen/radius_default"
+                app:layout_constraintTop_toBottomOf="@id/txtSubText">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:id="@+id/txtSchedules"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_default"
+                        android:text="@string/lbl_days_schedules"
+                        android:textStyle="bold"
+                        app:key="@string/rkey_lbl_days_schedules"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_editor_absoluteX="10dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvDays"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSchedules"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/txtSchedules"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSchedules"
+                        app:layout_constraintVertical_bias="0.0"
+                        >
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <TextView
+                        android:id="@+id/txtSchedule"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:drawablePadding="@dimen/margin_short_x"
+                        android:textStyle="italic"
+                        app:layout_constraintTop_toBottomOf="@id/rvDays"
+                        app:layout_constraintBottom_toTopOf="@+id/line"
+                        app:drawableTint="@color/colorIconWorkShop"
+                        tools:layout_editor_absoluteX="12dp"
+                        tools:layout_editor_absoluteY="41dp" />
+
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/color14"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSchedule"
+                        tools:layout_editor_absoluteX="5dp" />
+
+
+                    <TextView
+                        android:id="@+id/txtDuration"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_medium"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginTop="5dp"
+                        android:drawablePadding="@dimen/margin_short_x"
+                        android:text="@{viewModel.activity.duration}"
+                        android:textStyle="italic"
+                        app:drawableStartCompat="@drawable/ic_duration"
+                        app:drawableTint="@color/colorIconWorkShop"
+                        app:layout_constraintTop_toBottomOf="@id/line"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:layout_editor_absoluteX="12dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+
+            <View
+                android:id="@+id/auxBg"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_large"
+                android:background="@color/colorBackground1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Space
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/roundContainer"
+                android:layout_height="@dimen/margin_large"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

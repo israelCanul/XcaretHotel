@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xcaret.xcaret_hotel.view.tabs.vm.MapViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:context=".view.tabs.ui.MapFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <View
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/auxStatusBar"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbarMap"
+                android:elevation="4dp"
+                app:layout_constraintTop_toBottomOf="@id/auxStatusBar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    android:layout_width="@dimen/height_toolbar"
+                    android:layout_height="@dimen/height_toolbar"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_marginStart="@dimen/margin_default"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/colorIconClose" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnSearch"
+                    android:visibility="visible"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="@dimen/margin_default"
+                    app:cardBackgroundColor="@color/colorCardBackground"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="8dp"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp">
+
+                    <ImageView
+                        android:padding="@dimen/margin_medium"
+                        android:src="@drawable/ic_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:tint="@color/colorIconFilter"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/layoutSearch"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_width="0dp"
+                    android:layout_margin="@dimen/margin_short"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="@color/colorCardBackground"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/btnBack"
+                    app:cardCornerRadius="@dimen/margin_default">
+
+                    <RelativeLayout
+                        android:layout_margin="@dimen/margin_short"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:id="@+id/btnSearchClose"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/margin_short"
+                            android:background="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                        <EditText
+                            android:id="@+id/edSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@null"
+                            android:maxLines="1"
+                            android:lines="1"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:layout_toStartOf="@id/indicatorsSearch"
+                            android:layout_toEndOf="@id/btnSearchClose" />
+
+                        <RelativeLayout
+                            android:id="@+id/indicatorsSearch"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="@dimen/margin_short"
+                            android:layout_marginEnd="@dimen/margin_short"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true">
+
+                            <ImageView
+                                android:id="@+id/btnAux"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:tint="@color/colorIconFilter"
+                                android:src="@drawable/ic_search" />
+
+                            <ProgressBar
+                                android:id="@+id/progress"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                />
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <com.xcaret.xcaret_hotel.view.config.RoundCornerLayout
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="34dp"
+                    android:layout_marginStart="@dimen/margin_large"
+                    app:layout_constraintTop_toTopOf="@id/toolbarMap"
+                    app:layout_constraintBottom_toBottomOf="@id/toolbarMap"
+                    app:layout_constraintRight_toRightOf="@id/btnSearch"
+                    app:layout_constraintLeft_toRightOf="@id/btnBack"
+                    app:cornerRadius="@dimen/radius_default"
+                    app:topLeftEnabled="true"
+                    app:topRightEnabled="false"
+                    app:bottomLeftEnabled="true"
+                    app:bottomRightEnabled="false">
+
+                    <FrameLayout
+                        android:background="@color/colorPlecaTransparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvHotels"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:orientation="horizontal"
+                            android:layout_marginEnd="@dimen/margin_short_x"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            />
+
+                    </FrameLayout>
+
+                </com.xcaret.xcaret_hotel.view.config.RoundCornerLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/myLocation"
+                android:layout_margin="@dimen/margin_medium"
+                android:visibility="gone"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/filterFab"
+                app:cardCornerRadius="@dimen/margin_default"
+                app:cardElevation="@dimen/margin_default"
+                app:cardBackgroundColor="@color/colorIconMyLocation"
+                android:layout_width="@dimen/fab_size"
+                android:layout_height="@dimen/fab_size">
+
+                <ImageView
+                    android:layout_margin="@dimen/margin_default"
+                    android:src="@drawable/ic_my_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/filterFab"
+                android:layout_margin="@dimen/margin_medium"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/layoutRecycler"
+                app:cardCornerRadius="@dimen/margin_default"
+                app:cardElevation="@dimen/margin_default"
+                app:cardBackgroundColor="@color/colorIconShowFilter"
+                android:layout_width="@dimen/fab_size"
+                android:layout_height="@dimen/fab_size">
+
+                <ImageView
+                    android:layout_margin="@dimen/margin_default"
+                    android:src="@drawable/ic_filtrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:tint="@android:color/white"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/layoutRecycler"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_default"
+                app:layout_constraintBottom_toTopOf="@id/spaceBottom">
+
+                <com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView
+                    android:id="@+id/rvPlaces"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dsv_orientation="horizontal"/>
+
+                <com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView
+                    android:id="@+id/rvServices"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:dsv_orientation="horizontal"/>
+
+            </LinearLayout>
+
+            <Space
+                android:id="@+id/spaceBottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@drawable/shape_corner_slidenav"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/navHeader"
+                    layout="@layout/nav_header_slide"/>
+
+                <RelativeLayout
+                    android:id="@+id/lstMenuItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ExpandableListView
+                        android:id="@+id/lvExp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:groupIndicator="@android:color/transparent"
+                        android:childDivider="@android:color/transparent"
+                        android:transcriptMode="alwaysScroll" />
+                </RelativeLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

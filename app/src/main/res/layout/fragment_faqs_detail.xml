@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <variable
+            name="viewModel"
+            type="com.xcaret.xcaret_hotel.view.menu.vm.FaqDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/colorBackground1"
+        tools:context=".view.security.ui.SignUpFragment">
+
+        <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_bottomLeftRadius="@dimen/radius_header_home"
+            app:shape_roundRect_bottomRightRadius="@dimen/radius_header_home"
+            app:shape_roundRect_borderColor="@android:color/white"
+            app:shape_roundRect_borderWidth="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundTop">
+
+                <View
+                    android:id="@+id/statusBarFix"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin_default"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@id/txtDescriptionBar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtDescriptionBar"
+                    app:tint="@color/colorTopIcon" />
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:id="@+id/txtDescriptionBar"
+                    style="@style/AppTheme.TitleH2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="@string/about_my_reservation"
+                    app:key="@string/rkey_about_my_reservation"
+                    android:textColor="@color/colorTopTitle"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/margin_default"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/statusBarFix"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFaqsQA"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout"
+            tools:listitem="@layout/item_expandable_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

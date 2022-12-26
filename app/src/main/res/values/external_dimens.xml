@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BubbleTabBar -->
+    <dimen name="bubble_horizontal_padding">15dp</dimen>
+    <dimen name="bubble_vertical_padding">10dp</dimen>
+    <dimen name="bubble_icon_size">20dp</dimen>
+    <dimen name="bubble_title_size">12dp</dimen>
+    <dimen name="bubble_icon_padding">5dp</dimen>
+    <!-- BubbleTabBar -->
+
+    <!-- NeomorphFrameLayout -->
+    <dimen name="neomorph_view_corner_radius">16dp</dimen>
+    <dimen name="neomorph_view_corner_radius_circle">500dp</dimen>
+    <dimen name="neomorph_view_elevation">5dp</dimen>
+    <!-- NeomorphFrameLayout -->
+
+    <!-- Neumorphism -->
+    <!-- Default padding and inset to avoid shadow clipping -->
+    <dimen name="design_default_padding">12dp</dimen>
+    <dimen name="design_btn_padding_left">32dp</dimen>
+    <dimen name="design_btn_padding_right">32dp</dimen>
+    <dimen name="design_btn_padding_top">12dp</dimen>
+    <dimen name="design_btn_padding_bottom">12dp</dimen>
+    <dimen name="design_default_inset">12dp</dimen>
+
+    <!-- Default corner radius -->
+    <dimen name="design_default_corner_radius">16dp</dimen>
+    <dimen name="edit_text_underline_inset_bottom">4dp</dimen>
+    <dimen name="edit_text_underline_height">5dp</dimen>
+    <dimen name="edit_text_underline_corner_size">2dp</dimen>
+    <dimen name="edit_text_underline_elevation">2dp</dimen>
+    <integer name="button_pressed_animation_duration">100</integer>
+    <integer name="button_pressed_animation_delay">100</integer>
+    <!-- End Neumorphism -->
+
+</resources>

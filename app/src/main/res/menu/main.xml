@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_nav_home"
+        android:title="@string/lbl_nav_home"
+        android:iconTint="@color/colorBottomMenuActive"/>
+
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_nav_map"
+        android:title="@string/lbl_nav_map"
+        android:iconTint="@color/colorBottomMenuActive"
+        />
+
+    <item
+        android:id="@+id/AFIFragment"
+        android:icon="@drawable/ic_nav_allinclusive"
+        android:title="@string/lbl_nav_all_inclusive"
+        android:iconTint="@color/colorBottomMenuActive"/>
+
+    <item
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/ic_nav_menu"
+        android:title="@string/lbl_nav_menu"
+        android:iconTint="@color/colorBottomMenuActive"/>
+</menu>

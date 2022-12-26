@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.Award" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/layoutContent"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            app:tint="@color/colorIconAward"
+            android:src="@{itemViewModel.icon}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbarView"
+    android:visibility="visible"
+    android:layout_width="match_parent"
+    android:background="@color/colorBackgroundTop"
+    android:elevation="@dimen/elevation_large"
+    android:layout_height="@dimen/height_toolbar">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="visible"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_marginStart="@dimen/margin_default"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tint="@color/colorTopIcon" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        style="@style/AppTheme.TitleH2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+        android:textColor="@color/colorTopTitle"
+        android:textStyle="bold"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

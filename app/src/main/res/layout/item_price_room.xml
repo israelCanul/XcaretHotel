@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.QuotesRoomRatePlansNights" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingVertical="@dimen/margin_mini"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/lblDate"
+            style="@style/AppTheme.TextContentMin"
+            android:textColor="@color/colorTextBalanceNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.formatDate()}"
+            android:layout_marginStart="@dimen/margin_large"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+        <TextView
+            style="@style/AppTheme.TextContentMin"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextBalanceNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:text="@{itemViewModel.formatAmount()}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

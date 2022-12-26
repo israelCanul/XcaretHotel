@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.State" />
+    </data>
+
+    <RelativeLayout
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        android:id="@+id/layoutContent"
+        android:layout_marginHorizontal="@dimen/margin_large_x"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/AppTheme.TextContent"
+            android:text="@{itemViewModel.name}"
+            android:layout_marginVertical="@dimen/margin_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:bold="@{itemViewModel.is_selected}"/>
+
+    </RelativeLayout>
+
+</layout>

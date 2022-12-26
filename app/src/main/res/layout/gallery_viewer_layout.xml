@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView
+        android:id="@+id/rvGalleryImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView>
+
+    <View
+        android:background="@drawable/shadow_views_detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabGallery"
+        app:backgroundTint="@android:color/white"
+        android:src="@drawable/ic_gallery"
+        app:tint = "@color/coloIconGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_large"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@id/rvindicator"
+        app:layout_constraintRight_toRightOf="@id/rvindicator">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:id="@+id/rvindicator"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_margin="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

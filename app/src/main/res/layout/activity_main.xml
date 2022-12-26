@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".view.general.ui.MainActivity">
+
+    <fragment
+        android:fitsSystemWindows="true"
+        android:id="@+id/mainNavHost"
+        android:name="com.xcaret.xcaret_hotel.view.config.navigation.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:navGraph="@navigation/main"
+        app:defaultNavHost="true"/>
+
+    <include layout="@layout/toolbar_view"/>
+
+    <LinearLayout
+        android:id="@+id/layoutBottomNav"
+        android:visibility="gone"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorCardOutline"/>
+
+        <com.xcaret.xcaret_hotel.view.config.navbottombar.BubbleTabBar
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground1"
+            android:elevation="@dimen/elevation_default"
+            android:padding="@dimen/margin_short"
+            app:bubbletab_menuResource="@menu/main"
+            app:bubbletab_disabled_icon_color="@color/colorBottomMenuInactive"
+            app:bubbletab_horizontal_padding="20dp"
+            app:bubbletab_icon_size="20dp"
+            app:bubbletab_title_size="16sp"
+            app:bubbletab_icon_padding="5sp"
+            app:bubbletab_vertical_padding="10dp">
+
+        </com.xcaret.xcaret_hotel.view.config.navbottombar.BubbleTabBar>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

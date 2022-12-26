@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.xcaret.xcaret_hotel.view.config.DateUtil"/>
+        <variable
+            name="viewModel"
+            type="com.xcaret.xcaret_hotel.view.quote.vm.DateViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutContent"
+        android:background="@color/colorBackground1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.quote.ui.CalendarDialogFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/auxNavigation">
+
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:id="@+id/toolbarViewInside"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_toolbar"
+                app:shape_roundRect_bottomRightRadius="@dimen/margin_large"
+                app:shape_roundRect_bottomLeftRadius="@dimen/margin_large"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/colorBackgroundTop"
+                    android:elevation="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/btnBack"
+                        android:src="@drawable/ic_baseline_arrow_back_24"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="visible"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_marginStart="@dimen/margin_default"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="@color/colorTopIcon" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:id="@+id/txtTitle"
+                        style="@style/AppTheme.TitleH2"
+                        android:text="@string/date_dialog_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/btnBack"
+                        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+                        android:textColor="@color/colorTopTitle"
+                        android:textStyle="bold"
+                        app:key="@string/rkey_date_dialog_title"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+            <TextView
+                android:id="@+id/txtArrivalDate"
+                style="@style/AppTheme.TitleH2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.dateLiveDate.getFormatDisplay(viewModel.arrivalDate)}"
+                app:layout_constraintBottom_toBottomOf="@+id/txtSeparator"
+                app:layout_constraintRight_toLeftOf="@id/txtSeparator" />
+
+            <TextView
+                android:id="@+id/txtHotelName"
+                style="@style/AppTheme.TitleH2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_short"
+                android:text=""
+                android:visibility="@{viewModel.currentHotel.name == null ? View.INVISIBLE : View.VISIBLE}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbarViewInside" />
+
+            <TextView
+                android:id="@+id/txtSeparator"
+                style="@style/AppTheme.TitleH2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_short"
+                android:text="  -  "
+                android:visibility="@{viewModel.departureDate == null ? View.INVISIBLE : View.VISIBLE}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtHotelName" />
+
+            <TextView
+                android:id="@+id/txtDepartureDate"
+                style="@style/AppTheme.TitleH2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.dateLiveDate.getFormatDisplay(viewModel.departureDate)}"
+                app:layout_constraintBottom_toBottomOf="@+id/txtSeparator"
+                app:layout_constraintLeft_toRightOf="@id/txtSeparator" />
+
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:id="@+id/lblStay"
+                style="@style/AppTheme.TextContentMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_short"
+                android:text="@string/lbl_stays"
+                android:visibility="@{viewModel.dateLiveDate.calculateNights() > 0 ? View.VISIBLE : View.INVISIBLE}"
+                app:key="@string/rkey_lbl_stays"
+                app:layout_constraintRight_toLeftOf="@id/txtNights"
+                app:layout_constraintTop_toBottomOf="@id/txtSeparator" />
+
+            <TextView
+                android:id="@+id/txtNights"
+                style="@style/AppTheme.TextContentMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_short"
+                android:text="@{` ` + viewModel.dateLiveDate.calculateNights() + ` `}"
+                android:visibility="@{viewModel.dateLiveDate.calculateNights() > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtSeparator" />
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:id="@+id/lblNights"
+                style="@style/AppTheme.TextContentMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_short"
+                android:text="@string/lbl_nights"
+                android:visibility="@{viewModel.dateLiveDate.calculateNights() > 0 ? View.VISIBLE : View.INVISIBLE}"
+                app:key="@string/rkey_lbl_nights"
+                app:layout_constraintLeft_toRightOf="@id/txtNights"
+                app:layout_constraintTop_toBottomOf="@id/txtSeparator" />
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                android:id="@+id/calendarLayout"
+                style="@style/Widget.Neumorph.Quotes"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/margin_short"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="@dimen/margin_short"
+                app:layout_constraintBottom_toTopOf="@id/btnNext"
+                app:layout_constraintTop_toBottomOf="@id/txtNights"
+                app:neomorph_background_color="@color/colorCalendarBackground"
+                tools:layout_editor_absoluteX="6dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView
+                        android:id="@+id/rvYears"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/separator1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:background="@color/colorCalendarSeparator"
+                        app:layout_constraintTop_toBottomOf="@id/rvYears" />
+
+                    <com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView
+                        android:id="@+id/rvMoths"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_medium"
+                        app:layout_constraintTop_toBottomOf="@id/separator1" />
+
+                    <View
+                        android:id="@+id/separator2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:background="@color/colorCalendarSeparator"
+                        app:layout_constraintTop_toBottomOf="@id/rvMoths" />
+
+                    <include
+                        android:id="@+id/dayLegends"
+                        layout="@layout/calendar_day_legend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_default"
+                        android:layout_marginTop="@dimen/margin_large"
+                        app:layout_constraintTop_toBottomOf="@id/separator2" />
+
+                    <com.xcaret.xcaret_hotel.view.config.calendarview.CalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_default"
+                        android:layout_marginBottom="10dp"
+                        app:cv_dayViewResource="@layout/calendar_layout"
+                        app:cv_orientation="horizontal"
+                        app:cv_scrollMode="paged"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dayLegends"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                android:id="@+id/btnNext1"
+                style="@style/Widget.Neumorph.BlueButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/margin_short"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:alpha="@{viewModel.dateLiveDate.calculateNights() > 0 ? 1f : 0.5f}"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:layout_gravity="center"
+                    style="@style/AppTheme.TextContent"
+                    android:layout_marginVertical="@dimen/margin_default"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_next"
+                    app:key="@string/rkey_lbl_next"/>
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+                android:id="@+id/btnNext"
+                style="@style/Widget.Neumorph.BlueButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:alpha="@{viewModel.dateLiveDate.calculateNights() > 0 ? 1f : 0.5f}"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="16dp">
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    style="@style/AppTheme.TextContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/margin_default"
+                    android:text="@string/lbl_next"
+                    android:textColor="@color/colorButtonText"
+                    app:key="@string/rkey_lbl_next" />
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/auxNavigation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorBackgroundNavigation"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="0.1dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <import type="com.xcaret.xcaret_hotel.view.config.Constants"/>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.xcaret.xcaret_hotel.view.category.vm.WorkShopListViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/colorBackground2"
+        tools:context=".view.category.ui.WorkShopListFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants">
+
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:elevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shape_roundRect_borderColor="@android:color/white"
+                app:shape_roundRect_borderWidth="0dp"
+                app:shape_roundRect_bottomLeftRadius="@dimen/radius_header_home"
+                app:shape_roundRect_bottomRightRadius="@dimen/radius_header_home">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:imageByHotel="@{viewModel.categoryLiveData.lang.image}"
+                    android:referenceByHotel="@{FirebaseReference.CATEGORY}"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/hxm_default_ftvm_image" />
+
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:id="@+id/subHeaderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/filter_generic_height"
+                android:elevation="0dp"
+                android:layout_marginTop="@dimen/margin_default"
+                app:layout_constraintTop_toBottomOf="@id/headerLayout"
+                app:shape_roundRect_bottomLeftRadius="@dimen/radius_header_home"
+                app:shape_roundRect_bottomRightRadius="@dimen/radius_header_home"
+                app:shape_roundRect_borderColor="@android:color/white"
+                app:shape_roundRect_borderWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCategories"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+            <View
+                android:id="@+id/bgBottom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorBackground1"
+                android:layout_marginTop="@dimen/margin_default"
+                app:layout_constraintTop_toBottomOf="@id/subHeaderLayout"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <View
+                app:layout_constraintBottom_toBottomOf="@id/headerLayout"
+                android:background="@drawable/shadow_top_header"
+                android:layout_width="match_parent"
+                android:translationY="4dp"
+                android:layout_height="@dimen/height_shadow_large"/>
+
+            <TextView
+                android:id="@+id/txtDescription"
+                style="@style/AppTheme.TextContent"
+                android:lineSpacingExtra="@dimen/size_space_text_default"
+                android:text="@{viewModel.categorySelectedLiveData.lang.longDescription}"
+                app:layout_constraintTop_toBottomOf="@id/subHeaderLayout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWorkShop"
+                android:visibility="@{viewModel.loading ? View.GONE : View.VISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_short"
+                android:layoutAnimation="@anim/layout_animation"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription"/>
+
+            <ProgressBar
+                android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Space
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/rvWorkShop"
+                android:layout_height="@dimen/margin_large"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

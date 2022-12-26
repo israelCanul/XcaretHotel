@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.xcaret.xcaret_hotel.view.config.Constants" />
+
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.DestinationActivity" />
+    </data>
+
+    <RelativeLayout
+
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:focusable="false"
+        tools:context=".view.category.ui.RoomListFragment">
+
+        <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+            style="@style/Widget.Neumorph.White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_short"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:onlyThumbs="@{true}"
+                    android:reference="@{Constants.PATH_DESTINATION_ACTIVITY}"
+                    android:scaleType="centerCrop"
+                    android:thumb="@{itemViewModel.image}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/guideline2"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@id/ivHeader"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guideline2">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/AppTheme.TitleH2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:layout_marginTop="@dimen/margin_default"
+                        android:layout_marginEnd="@dimen/margin_default"
+                        android:minLines="1"
+                        android:maxLines="2"
+                        android:text="@{itemViewModel.lang.title}"
+                        android:textColor="@color/colorTextSecondary"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/txtShortDescription"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_default"
+                        android:layout_marginVertical="@dimen/margin_mini"
+                        android:ellipsize="end"
+                        android:lines="4"
+                        android:text="@{itemViewModel.lang.description}"
+                        android:textColor="@color/colorTextSecondary"
+                        app:layout_constraintBottom_toTopOf="@id/txtSchedule"
+                        app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+                    <TextView
+                        android:id="@+id/txtSchedule"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:layout_marginBottom="@dimen/margin_mini"
+                        android:ellipsize="end"
+                        android:text="@{itemViewModel.lang.schedule}"
+                        android:textColor="@color/colorTextSecondary"
+                        android:textStyle="bold"
+                        android:visibility="@{itemViewModel.type.empty ? View.INVISIBLE : View.VISIBLE}"
+                        app:layout_constraintBottom_toTopOf="@id/txtNote"
+                        app:layout_constraintTop_toBottomOf="@id/txtShortDescription" />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:id="@+id/txtNote"
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_default"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:text="@string/lbl_must_show_bracelet"
+                        android:textColor="@color/colorTextSecondary"
+                        android:textStyle="italic"
+                        android:visibility="@{itemViewModel.lang.schedule.empty ? View.INVISIBLE : View.VISIBLE}"
+                        app:key="@string/rkey_lbl_must_show_bracelet"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtSchedule" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+    </RelativeLayout>
+</layout>

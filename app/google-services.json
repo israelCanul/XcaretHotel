@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "695818094309",
+    "firebase_url": "https://hotelxcaretmexico-b273b.firebaseio.com",
+    "project_id": "hotelxcaretmexico-b273b",
+    "storage_bucket": "hotelxcaretmexico-b273b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695818094309:android:40a47b239b30e85f2bf60c",
+        "android_client_info": {
+          "package_name": "com.xcaret.xcaret_hotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695818094309-o4gm09thncdpj1h8qg61cebr4h8mc2q1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSV1TXrjXMciWm1wbabfeVQ38Fx0XVBiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695818094309-o4gm09thncdpj1h8qg61cebr4h8mc2q1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "695818094309-21u14mn3lm2lusd5jouir7n9d3p5t5u6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.xcaretgroup.hotelxcaretmexico"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

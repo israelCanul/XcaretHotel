@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- String resources go here -->
+    <string name="card_content_descriptor">card</string>
+    <string name="modal_content_descriptor">modal</string>
+    <string name="modal_inner_content_descriptor">modal inner</string>
+
+    <string name="placeholder_very_short">
+        Hello, world!
+    </string>
+    <string name="placeholder_lorem_ipsum_short">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque.
+    </string>
+</resources>

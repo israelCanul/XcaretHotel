@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.xcaret.xcaret_hotel.view.security.vm.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedForm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/containerSignup"
+            android:background="@color/colorBackground1"
+            android:fillViewport="true"
+            tools:context=".view.security.ui.SignUpFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar_generic" />
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutTitle"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutFirstName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutFirstName"
+                    app:layout_constraintWidth_percent=".32">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/txtTitle"
+                            style="@style/AppTheme.TextContent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/margin_short"
+                            android:layout_marginStart="@dimen/margin_large"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:focusable="false"
+                            android:lines="1"
+                            android:padding="@dimen/margin_mini_x"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/indicatorTitle"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/indicatorTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_default"
+                            android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutFirstName"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintLeft_toRightOf="@id/layoutTitle"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                    <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                        android:id="@+id/etFirstName"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginVertical="@dimen/margin_short"
+                        android:background="@null"
+                        android:hint="@string/placeholder_first_name"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:padding="@dimen/margin_mini_x"
+                        app:key_hint="@string/rkey_placeholder_first_name" />
+
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutLastName"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutFirstName">
+
+                    <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                        android:id="@+id/etLastName"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginVertical="@dimen/margin_short"
+                        android:background="@null"
+                        android:hint="@string/placeholder_last_name"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:padding="@dimen/margin_mini_x"
+                        app:key="@string/rkey_placeholder_last_name" />
+
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutEmail"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutLastName">
+
+                    <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                        android:id="@+id/etEmail"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginVertical="@dimen/margin_short"
+                        android:background="@null"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:padding="@dimen/margin_mini_x"
+                        app:key_hint="@string/rkey_email" />
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutPassword"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutEmail">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                            android:id="@+id/etPassword"
+                            style="@style/AppTheme.TextContent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_large"
+                            android:layout_marginVertical="@dimen/margin_short"
+                            android:background="@null"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:padding="@dimen/margin_mini_x"
+                            app:key_hint="@string/rkey_password"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/btnShowPassword"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/btnShowPassword"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="@dimen/margin_large"
+                            android:alpha="0.5"
+                            android:src="@drawable/ic_hidden_password"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/colorTextPrimary" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutConfirmPassword"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPassword">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                            android:id="@+id/etConfirmPassword"
+                            style="@style/AppTheme.TextContent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_large"
+                            android:layout_marginVertical="@dimen/margin_short"
+                            android:background="@null"
+                            android:hint="@string/confirm_password"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:padding="@dimen/margin_mini_x"
+                            app:key_hint="@string/rkey_confirm_password"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/btnShowConfirmPassword"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/btnShowConfirmPassword"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="@dimen/margin_large"
+                            android:alpha="0.5"
+                            android:src="@drawable/ic_hidden_password"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/colorTextPrimary" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:id="@+id/captionPassword"
+                    style="@style/AppTheme.TextContentMin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_large_x"
+                    android:text="@string/password_format_msg"
+                    android:textStyle="italic"
+                    app:key="@string/rkey_password_format_msg"
+                    app:layout_constraintTop_toBottomOf="@id/layoutConfirmPassword" />
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutAddress"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:inputType="textCapSentences"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/captionPassword">
+
+                    <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                        android:id="@+id/etAddress"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginVertical="@dimen/margin_short"
+                        android:background="@null"
+                        android:hint="@string/placeholder_street_address"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:padding="@dimen/margin_mini_x"
+                        app:key_hint="@string/rkey_placeholder_street_address" />
+
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <LinearLayout
+                    android:id="@+id/placesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/layoutCity"
+                    app:layout_constraintTop_toBottomOf="@id/layoutAddress">
+
+                    <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                        android:id="@+id/layoutCountry"
+                        style="@style/Widget.Neumorph.InputView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/heigth_spinner"
+                        android:layout_weight="1"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/layoutState"
+                        app:layout_constraintTop_toBottomOf="@id/layoutAddress">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                                android:id="@+id/etCountry"
+                                style="@style/AppTheme.TextContent"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_large"
+                                android:background="@null"
+                                android:ellipsize="end"
+                                android:focusable="false"
+                                android:hint="@string/place_holder_country"
+                                android:lines="1"
+                                android:maxLines="2"
+                                android:padding="@dimen/margin_mini_x"
+                                app:key_hint="@string/rkey_placeholder_country_region"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toLeftOf="@id/indicatorCountry"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/indicatorCountry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_default"
+                                android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                    <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                        android:id="@+id/layoutState"
+                        style="@style/Widget.Neumorph.InputView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:layout_constraintLeft_toRightOf="@id/layoutCountry"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/layoutCountry">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                                android:id="@+id/etState"
+                                style="@style/AppTheme.TextContent"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="@dimen/margin_short"
+                                android:layout_marginStart="@dimen/margin_large"
+                                android:background="@null"
+                                android:focusable="false"
+                                android:hint="@string/place_holder_state"
+                                android:padding="@dimen/margin_mini_x"
+                                app:key_hint="@string/rkey_placeholder_state"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toLeftOf="@id/indicatorState"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/indicatorState"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_default"
+                                android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                </LinearLayout>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutCity"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_mini"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/layoutCP"
+                    app:layout_constraintTop_toBottomOf="@id/placesContainer">
+
+                    <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                        android:id="@+id/etCity"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginVertical="@dimen/margin_short"
+                        android:background="@null"
+                        android:hint="@string/placeholder_city"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:padding="@dimen/margin_mini_x"
+                        app:key="@string/rkey_placeholder_city" />
+
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutCP"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_mini"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    app:layout_constraintLeft_toRightOf="@id/layoutCity"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/placesContainer">
+
+                    <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                        android:id="@+id/etCP"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_large"
+                        android:layout_marginVertical="@dimen/margin_short"
+                        android:background="@null"
+                        android:hint="@string/placeholder_postal_code"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:padding="@dimen/margin_mini_x"
+                        app:key="@string/rkey_placeholder_postal_code" />
+
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                    android:id="@+id/layoutPhone"
+                    style="@style/Widget.Neumorph.InputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutCP">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtPhoneCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/margin_large_x"
+                            android:text="@string/default_code_phone"
+                            android:textSize="@dimen/size_text_content"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="@dimen/margin_medium"
+                            android:text="/"
+                            android:textSize="@dimen/size_text_content"
+                            android:textStyle="bold" />
+
+                        <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                            android:id="@+id/etPhone"
+                            style="@style/AppTheme.TextContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/margin_short"
+                            android:layout_marginEnd="@dimen/margin_large"
+                            android:background="@null"
+                            android:hint="@string/placeholder_phone"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:padding="@dimen/margin_mini_x"
+                            app:key_hint="@string/rkey_placeholder_phone" />
+
+                    </LinearLayout>
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:id="@+id/txtReceivePromotions"
+                    style="@style/AppTheme.TextContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large_x"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@string/receive_promotions"
+                    app:key="@string/receive_promotions"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/stReceivePromotions"
+                    app:layout_constraintTop_toBottomOf="@id/layoutPhone" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/stReceivePromotions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large_x"
+                    android:checked="true"
+                    android:theme="@style/AppTheme.Switch"
+                    app:layout_constraintBottom_toBottomOf="@id/txtReceivePromotions"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txtReceivePromotions" />
+
+                <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                    android:id="@+id/btnCancel_"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:padding="@dimen/margin_medium"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/btnSignUp_"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/btnSignUp_"
+                    app:layout_constraintTop_toTopOf="@id/btnSignUp_"
+                    app:shape_roundRect_borderColor="@color/color3"
+                    app:shape_roundRect_borderWidth="0dp">
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_cancel"
+                        android:textAlignment="center"
+                        android:textColor="@color/color8"
+                        app:key="@string/rkey_btn_cancel" />
+
+                </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+                <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+                    android:id="@+id/btnSignUp_"
+                    style="@style/Widget.Neumorph.BlueButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_large"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/btnCancel_"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtReceivePromotions">
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_short_x"
+                        android:text="@string/btn_create"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        app:key="@string/rkey_btn_create" />
+
+                </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+                <!--            <Space-->
+                <!--                app:layout_constraintTop_toBottomOf="@id/btnSignUp_"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="@dimen/margin_large"/>-->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerSignup"
+            android:background="@color/colorBackground1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:padding="@dimen/margin_medium"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btnSignUp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btnSignUp"
+                app:layout_constraintTop_toTopOf="@id/btnSignUp"
+                app:shape_roundRect_borderColor="@color/color3"
+                app:shape_roundRect_borderWidth="0dp">
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    style="@style/AppTheme.TextContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_cancel"
+                    android:textAlignment="center"
+                    android:textColor="@color/color8"
+                    app:key="@string/rkey_btn_cancel" />
+
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+                android:id="@+id/btnSignUp"
+                style="@style/Widget.Neumorph.BlueButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btnCancel"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    style="@style/AppTheme.TextContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_short_x"
+                    android:text="@string/btn_create"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    app:key="@string/rkey_btn_create" />
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_large"
+                app:layout_constraintTop_toBottomOf="@id/btnSignUp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

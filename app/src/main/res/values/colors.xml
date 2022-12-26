@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- colors -->
+    <color name="color1">#CAA690</color>
+    <color name="color1_transparency">#80CAA690</color>
+    <color name="color2">#FFF5E9</color>
+    <color name="color3">#FFFAF4</color>
+    <color name="color4">#E5CFBC</color>
+    <color name="color4_1">#E5CFBC</color>
+    <color name="color5">#FFF5E9</color>
+    <color name="color6">#FFFFFF</color>
+    <color name="color6_trasparency">#80FFFFFF</color>
+    <color name="color7">#5C3C37</color>
+    <color name="color8">#0075FF</color>
+    <color name="color9">#A60067</color>
+    <color name="color9_Snack">#BFA60067</color>
+    <color name="color10">#FB9800</color>
+    <color name="color11">#5470AD</color>
+    <color name="color12">#FBEBDC</color>
+    <color name="color13">#C2BBB7</color>
+    <color name="color14">#EECFB5</color>
+    <color name="color14_transparency">#EECFB5</color>
+    <color name="color15">#D6B295</color>
+    <color name="color16">#7891C8</color>
+    <color name="color17">#EC5AB5</color>
+    <color name="color18">#F5CB7D</color>
+    <color name="color19">#BD8826</color>
+    <color name="color20">#B3DAFF</color>
+    <color name="color21">#5C95CA</color>
+    <color name="color22">#DCF0FD</color>
+    <color name="color23">#A4C9E0</color>
+    <color name="color24">#CCF528</color>
+    <color name="color25">#9ABC14</color>
+    <color name="color26">#DEB375</color>
+    <color name="color27">#8D6D3F</color>
+    <color name="color28">#FBE4CC</color>
+    <color name="color29">#B4D6FE</color>
+    <color name="color30">#FF7000</color>
+    <color name="color31">#AEC8FF</color>
+    <color name="color32">#B49E7B</color>
+    <color name="color33">#E5DDD1</color>
+    <color name="color34">#B18C6E</color>
+    <color name="color35">#265C3C37</color>
+    <color name="color36">#797C81</color>
+    <color name="color37">#F060B9</color>
+    <color name="color38">#4E4E4E</color>
+    <color name="color39">#222222</color>
+    <color name="color40">#B3FFFFFF</color>
+    <color name="color41">#C00000</color>
+    <color name="color42">#E9B96D</color>
+    <color name="color43">#6693C9</color>
+    <color name="color44">#853AB0</color>
+    <color name="color45">#D58CFF</color>
+    <color name="color46">#FFFFFF</color>
+    <color name="color7_R">#AA9B96</color>
+    <color name="color47">#2D2D2D</color>
+    <color name="colorSnackStatusBar">#252525</color>
+    <color name="colorSnackNight">#BF4366B2</color>
+    <color name="color48">#5C3C37</color>
+    <color name="color_sucess_snack">#09AA1A</color>
+    <color name="color_error_snack">#AA0909</color>
+
+    <!-- base -->
+    <color name="colorPrimary">@color/color3</color>
+    <color name="colorPrimaryDark">@color/color2</color>
+    <color name="colorAccent">@color/color7</color>
+    <color name="textColorHint">#6c4f4b</color>
+    <color name="colorBtnBack">@color/color6</color>
+    <color name="colorToolbar">@color/color6</color>
+
+    <!-- backgrounds -->
+    <color name="colorBackgroundTop">@color/color1</color>
+    <color name="colorBackground1">@color/color3</color>
+    <color name="colorBackground2">@color/color2</color>
+    <color name="colorBackgroundShadow">@color/color4</color>
+    <color name="colorBackgroundBottom">@color/color5</color>
+    <color name="colorBackgroundAlert">#E6FFFAF4</color>
+    <color name="colorBackgroundNavigation">@color/color1</color>
+    <color name="colorBackgroundNavigation_Aux">@color/color2</color>
+    <color name="colorBackgroundQuotesBottom">@color/color6</color>
+    <!-- end brackgrounds -->
+
+    <!-- window -->
+    <color name="colorWindowShadow">@color/color4</color>
+    <color name="colorWindowStart">@color/color3</color>
+    <color name="colorWindowEnd">@color/color2</color>
+    <!-- end window -->
+
+    <!-- top -->
+    <color name="colorTopIcon">@color/color6</color>
+    <color name="colorTopTitle">@color/color6</color>
+    <color name="colorTopCurrency">@color/color6</color>
+    <!-- end top -->
+
+    <!-- general text -->
+    <color name="colorTextPrimary">@color/color7</color>
+    <color name="colorTextSecondary">@color/color11</color>
+    <color name="colorTextAction">@color/color8</color>
+    <color name="colorTextNotAvailable">@color/color9</color>
+    <color name="colorTextSecurity">@color/color10</color>
+    <color name="colorTextSelectRoom">@color/color10</color>
+    <color name="colorTextPink">@color/color9</color>
+    <color name="colorTextQuote">@color/color7</color>
+    <color name="colorTextVisitorPicker">@color/color7</color>
+    <color name="colorTextTotalQuotes">@color/color11</color>
+    <color name="colorTextSplash">@color/color7</color>
+    <color name="colorTextBalanceTitle">@color/color10</color>
+    <color name="colorTextBalanceNight">@color/color11</color>
+    <color name="colorTextReservation">@color/color7</color>
+    <color name="colorTextReservationsStatus1">#0ABF61</color>
+    <color name="colorTextReservationsStatus2">#D51C1C</color>
+    <color name="colorTextReservationsStatus3">#E8981E</color>
+    <!-- end general text -->
+
+    <!-- weather -->
+    <color name="colorWeatherPrimary">@color/color7</color>
+    <color name="colorWeatherDegrees">@color/color7</color>
+    <color name="colorWeatherIcon">@color/color10</color>
+    <color name="colorWatherBackground">@color/color12</color>
+    <color name="colorWeatherText">@color/color10</color>
+    <color name="colorWeatherMorning">@color/color6</color>
+    <color name="colorWeatherEven">@color/color42</color>
+    <color name="colorWeatherNight">@color/color43</color>
+    <color name="colorWeatherBack">@color/color7</color>
+    <color name="colorWeatherInpar">@color/color12</color>
+    <!-- end weather -->
+
+    <!-- map -->
+    <color name="colorMapTitle">@color/color11</color>
+    <color name="colorMapSeparator">@color/color13</color>
+    <color name="colorMapExtraInfo">@color/color13</color>
+    <color name="colorItemMapBackground">@color/color6</color>
+    <color name="colorItemMapLigth">@color/color6</color>
+    <color name="colorItemMapDark">@color/color36</color>
+    <color name="colorFilterSeparator">@color/color14</color>
+    <!-- end map -->
+
+    <!-- calendar -->
+    <color name="colorCalendarBackground">@color/color6</color>
+    <color name="colorCalendarLight">@color/color6</color>
+    <color name="colorCalendarDark">@color/color4</color>
+    <color name="colorCalendarTextTitle">@color/color11</color>
+    <color name="colorCalendarWeekName">@color/color7</color>
+    <color name="colorCalendarTextGeneral">@color/color7</color>
+    <color name="colorCalendarTextDisabled">@color/color13</color>
+    <color name="colorCalendarSeparator">@color/color14</color>
+    <color name="colorCalendarDayBefore">@color/color13</color>
+    <color name="colorCalendarTextDay">@color/color7</color>
+    <color name="colorCalendarCurrentDay">@color/color11</color>
+    <color name="colorCalendarDayStart">@color/color11</color>
+    <color name="colorCalendarDayEnd">@color/color11</color>
+    <color name="colorCalendarDayMiddle">@color/color31</color>
+    <!-- end calendar -->
+
+    <!-- transportation -->
+    <color name="colorTransportationText">@color/color9</color>
+    <color name="colorTransportationIcon">@color/color9</color>
+    <color name="colorTransportatioFormText">@color/color11</color>
+    <!-- end transportation -->
+
+    <!-- buttons -->
+    <color name="colorBottomMenuInactive">@color/color7</color>
+    <color name="colorBottomMenuActive">@color/color9</color>
+    <color name="colorBottomMenuLight">@color/color6</color>
+    <color name="colorBottomMenuDark">@color/color4</color>
+
+    <color name="colorButtonPink">@color/color9</color>
+    <color name="colorButtonPinkFlat">@color/color17</color>
+    <color name="colorButtonPinkLight">@color/color6</color>
+    <color name="colorButtonPinkDark">@color/color15</color>
+
+    <color name="colorButtonOrange">@color/color10</color>
+    <color name="colorButtonOrangeLight">@color/color6</color>
+    <color name="colorButtonOrangeDark">@color/color15</color>
+
+    <color name="colorButtonBlue">@color/color16</color>
+    <color name="colorButtonBlueOutLine">@color/color11</color>
+    <color name="colorButtonBlueLight">@color/color6</color>
+    <color name="colorButtonBlueDark">@color/color15</color>
+    <color name="colorButtonBlueDark_Transparency">@color/color15</color>
+    <color name="colorButtonBlueLight_Transparency">@color/color6_trasparency</color>
+
+    <color name="colorButtonWhiteOutline">@color/color6</color>
+
+    <color name="colorButtonBrown">@color/color6</color>
+    <color name="colorButtonBrownOutline">@color/color7</color>
+    <color name="colorButtonBrownLight">@color/color6</color>
+    <color name="colorButtonBrownDark">@color/color4</color>
+
+    <color name="colorButtonText">@color/color6</color>
+    <color name="colorButtonBrownOutlineDisabled">@color/color14</color>
+    <!-- end buttons -->
+
+    <!-- gradient -->
+    <color name="colorFireHouseStart">@color/color19</color>
+    <color name="colorFireHouseEnd">@color/color28</color>
+
+    <color name="colorWaterHouseStart">@color/color21</color>
+    <color name="colorWaterHouseEnd">@color/color20</color>
+
+    <color name="colorWindHouseStart">@color/color23</color>
+    <color name="colorWindHouseEnd">@color/color22</color>
+
+    <color name="colorLandHouseStart">@color/color25</color>
+    <color name="colorLandHouseEnd">@color/color24</color>
+
+    <color name="colorXpiralHouseStart">@color/color27</color>
+    <color name="colorXpiralHouseEnd">@color/color26</color>
+
+    <color name="colorFilterStart">@color/color28</color>
+    <color name="colorFilterEnd">@color/color3</color>
+
+    <color name="colorFilterLight">@color/color6</color>
+    <color name="colorFilterDark">@color/color4</color>
+
+    <color name="colorAlertStart">@color/color9</color>
+    <color name="colorAlertEnd">@color/color37</color>
+
+    <color name="colorShadowLight">@color/color6</color>
+    <color name="colorShadowLightTrasparency">@color/color6_trasparency</color>
+    <color name="colorShadowDark">@color/color15</color>
+    <color name="colorShadowDark1">@color/color4</color>
+
+    <color name="colorHouseHXAStart">@color/color44</color>
+    <color name="colorHouseHXAEnd">@color/color45</color>
+    <!-- end gradient -->
+
+    <!-- switch -->
+    <color name="colorSwitchBg">@color/color8</color>
+    <color name="colorSwitchActive">@color/color8</color>
+    <color name="colorSwitchInactive">@color/color36</color>
+    <!-- end switch -->
+
+    <!-- icon -->
+    <color name="colorIconOrange">@color/color30</color>
+    <color name="colorIconSocial">@color/color7</color>
+    <color name="colorIconSocialOutLine">@color/color14</color>
+    <color name="colorIconSocialBg">@color/color6</color>
+    <color name="colorIconPlus">@color/color7</color>
+    <color name="colorIconMinus">@color/color7</color>
+    <color name="colorPlusMinusOutLine">@color/color7</color>
+    <color name="colorIconFilter">@color/color7</color>
+    <color name="colorIconMenu">@color/color7</color>
+    <color name="colorIconMenu_R">@color/color7_R</color>
+    <color name="colorIconAward">#CCD5CCBF</color>
+    <color name="colorIconClose">@color/color7</color>
+    <color name="colorIconShowFilter">@color/color8</color>
+    <color name="colorIconMyLocation">@color/color40</color>
+    <color name="colorIconMedicalService">@color/color41</color>
+    <color name="colorMapIconSelected">@color/color9</color>
+    <color name="colorMapIconUnselected">@color/color17</color>
+    <color name="colorFilterIcon">@color/color9</color>
+    <color name="colorFilterHouse">@color/color6</color>
+    <color name="colorIconRoomSelected">@color/color10</color>
+    <color name="colorIconMyReservation">@color/color7</color>
+    <color name="colorIconWorkShop">@color/color7</color>
+    <color name="colorNotificationIcon">@color/color9</color>
+    <color name="coloIconGallery">@color/color48</color>
+    <!-- end icon -->
+
+    <!-- components -->
+    <color name="colorInputBackground">@color/color6</color>
+    <color name="colorInputLight">@color/color6</color>
+    <color name="colorInputDark">@color/color33</color>
+    <color name="colorInputOutline">@color/color14</color>
+    <color name="colorOutlineReservation">@color/color14</color>
+
+    <color name="colorCardBackground">@color/color6</color>
+    <color name="colorCardLight">@color/color6</color>
+    <color name="colorCardDark">@color/color33</color>
+    <color name="colorCardOutline">@color/color4</color>
+
+    <color name="colorCardBackgroundQuotes">@color/color6</color>
+    <color name="colorCardLightQuotes">@color/color6</color>
+    <color name="colorCardDarkQuotes">@color/color4</color>
+    <color name="colorCardOutlineQuotes">@color/color4</color>
+
+    <color name="colorPlecaTransparent">@color/color35</color>
+    <color name="colorShadowBottom">@color/color34</color>
+    <color name="colorShadowBottom1">@color/color4</color>
+    <color name="colorShadowBottom1_1">@color/color4_1</color>
+    <color name="colorShadowBottomQuotes1">@color/color36</color>
+    <color name="colorShadowBottomQuotes2">@color/color4</color>
+    <color name="colorShadowTop">@color/color4</color>
+    <color name="colorShadowImageHeader">@color/color34</color>
+
+    <color name="colorSeparatorBackground">@color/color3</color>
+    <color name="colorSeparatorLight">@color/color6</color>
+    <color name="colorSeparatorDark">@color/color4</color>
+
+    <color name="colorLocationLight">@color/color6</color>
+    <color name="colorLocationLightTransparency">@color/color6_trasparency</color>
+    <color name="colorLocationDark">@color/color4</color>
+
+    <color name="colorInputPaxText">@color/color6</color>
+    <color name="colorInputPaxBg">@color/color11</color>
+
+    <color name="colorInputAgeText">@color/color11</color>
+
+    <color name="colorSwitchText">@color/color9</color>
+    <color name="colorSwitchBackground">@color/color12</color>
+
+    <color name="colorBackgroundTimerDialog">@color/color6</color>
+    <color name="colorHeaderBackgroundTimerDialog">@color/color1</color>
+    <color name="colorBackgroundClockDialog">@color/color2</color>
+    <color name="colorNumberTextColor">@color/color7</color>
+    <color name="colorNumberTextSelectColor">@color/color9</color>
+    <color name="numbersBackgroundColor">@color/color13</color>
+    <!-- end components -->
+
+    <!-- color cards bg -->
+    <color name="colorCardTypeText">#252525</color>
+    <color name="colorCardTypeDefault">#95C3FF</color>
+
+    <color name="colorCardTypeDSStart">#FAB982</color>
+    <color name="colorCardTypeDSEnd">#FFEABE</color>
+
+    <color name="colorCardTypeDNStart">#6C9CDA</color>
+    <color name="colorCardTypeDNEnd">#ACCFF4</color>
+
+    <color name="colorCardTypeJCStart">#CAF0BF</color>
+    <color name="colorCardTypeJCCenter">#FFB7C5</color>
+    <color name="colorCardTypeJCEnd">#B3DBFF</color>
+
+    <color name="colorCardTypeVIStart">#A6A9DA</color>
+    <color name="colorCardTypeVIEnd">#FFE59F</color>
+
+    <color name="colorCardTypeAXStart">#90C1EB</color>
+    <color name="colorCardTypeAXEnd">#F8F9FA</color>
+
+    <color name="colorCardTypeMCStart">#FF97A2</color>
+    <color name="colorCardTypeMCCenter">#FFB98F</color>
+    <color name="colorCardTypeMCEnd">#FFD8A1</color>
+
+    <color name="colorCardTypeShadow">#D6B295</color>
+    <!-- end color cards bg -->
+</resources>

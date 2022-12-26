@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground1"
+    android:id="@+id/layoutMain"
+    tools:context=".view.menu.ui.FaqsDialogFragment">
+
+
+    <View
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_short"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_shadow_large"
+        android:background="@drawable/shadow_bottom_bar"
+        android:translationY="8dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutContent"/>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toTopOf="@id/auxNavigation"
+        app:layout_constraintTop_toBottomOf="@+id/statusBar"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_large"
+        app:shape_roundRect_topRightRadius="@dimen/margin_large">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_windows">
+
+            <ImageView
+                android:id="@+id/txtCloseFaq"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/margin_default"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/margin_short"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorIconClose" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                style="@style/AppTheme.TitleH1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/frecuently_asked_question"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtCloseFaq" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFaqs"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle"
+                tools:listitem="@layout/item_expandable_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <View
+        android:id="@+id/auxNavigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorBackgroundNavigation_Aux"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

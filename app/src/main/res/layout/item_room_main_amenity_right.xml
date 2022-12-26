@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.RoomAmenity" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layoutContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+            style="@style/AppTheme.TextContentMin"
+            android:layout_width="wrap_content"
+            android:textAlignment="textEnd"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextSecondary"
+            app:drawableTint="@color/colorTextSecondary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textStyle="italic"
+            android:drawableStartCompat="@{itemViewModel.icon}"
+            android:text="@{itemViewModel.lang.descriptionShort}"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="@dimen/margin_mini"
+            android:drawablePadding="@dimen/margin_short"
+            android:focusable="false"/>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.ParkTour" />
+    </data>
+
+    <RelativeLayout
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutContent"
+        android:focusable="false"
+        tools:context=".view.category.ui.RoomListFragment">
+
+        <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+            style="@style/Widget.Neumorph.White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_short"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:onlyThumbs="@{true}"
+                    android:reference="@{`park_tour`}"
+                    android:scaleType="centerCrop"
+                    android:thumb="@{itemViewModel.lang.image}"
+                    app:layout_constraintBottom_toTopOf="@id/guidelineVertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@id/ivHeader"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guidelineVertical">
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        style="@style/AppTheme.TitleH2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:layout_marginTop="@dimen/margin_default"
+                        android:layout_marginEnd="@dimen/margin_default"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{itemViewModel.name}"
+                        android:textColor="@color/colorTextSecondary"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtCategorySubTitle"
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="@{itemViewModel.lang.slogan}"
+                        android:textColor="@color/colorTextSecondary"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+
+                    <TextView
+                        android:id="@+id/txtShortDescription"
+                        style="@style/AppTheme.TextContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_default"
+                        android:ellipsize="end"
+                        android:lines="3"
+                        android:text="@{itemViewModel.lang.descriptionShort}"
+                        android:textColor="@color/colorTextSecondary"
+                        app:layout_constraintTop_toBottomOf="@id/txtCategorySubTitle" />
+
+                    <TextView
+                        style="@style/AppTheme.TextContentMin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_default"
+                        android:layout_marginTop="@dimen/margin_default"
+                        android:layout_marginBottom="@dimen/margin_default"
+                        android:lines="3"
+                        android:text="@{itemViewModel.lang.schedule}"
+                        android:textColor="@color/colorTextSecondary"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtShortDescription"
+                        app:layout_constraintWidth_percent=".5" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+    </RelativeLayout>
+</layout>

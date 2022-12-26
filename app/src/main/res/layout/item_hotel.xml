@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <import type="com.xcaret.xcaret_hotel.view.config.Constants"/>
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.Hotel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layoutContent"
+        android:layout_marginHorizontal="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:neomorph_elevation="@dimen/elevation_short"
+            app:neomorph_corner_radius="@dimen/radius_short">
+
+            <com.xcaret.xcaret_hotel.view.config.RoundCornerLayout
+                android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cornerRadius="@dimen/radius_short"
+                app:topLeftEnabled="true"
+                app:topRightEnabled="true"
+                app:bottomLeftEnabled="true"
+                app:bottomRightEnabled="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:reference="@{itemViewModel.hotelPlace.code.toLowerCase() + `/` + FirebaseReference.PLACE}"
+                        android:thumb="@{itemViewModel.hotelPlace.lang.image}"
+                        android:src="@drawable/hxm_default"
+                        android:layout_width="match_parent"
+                        android:scaleType="centerCrop"
+                        android:layout_height="match_parent"
+                        android:tag="imagenGrande"/>
+
+                    <ImageView
+                        android:tag="logo"
+                        android:id="@+id/logoHxm"
+                        android:layout_width="match_parent"
+                        android:src="@{itemViewModel.logo}"
+                        android:layout_height="0dp"
+                        android:elevation="@dimen/elevation_default"
+                        android:layout_marginTop="@dimen/margin_large_x"
+                        app:layout_constraintHeight_percent=".2"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.xcaret.xcaret_hotel.view.config.RoundCornerLayout>
+
+        </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+    </RelativeLayout>
+
+</layout>

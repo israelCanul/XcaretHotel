@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.xcaret.xcaret_hotel.domain.BookingCreditCardInputType"/>
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.BookingCreditCardInput" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/layoutContent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:tag="creditCardInfo"
+            android:id="@+id/creditCardInfo"
+            android:layout_marginHorizontal="@dimen/margin_mini"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                android:id="@+id/inputCardInfo"
+                android:tag="CadViewInputCardInfo"
+                style="@style/Widget.Neumorph.InputView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btnShowInfo"
+                app:neumorph_inset="@dimen/margin_short"
+                android:layout_weight="1">
+
+                <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                    android:id="@+id/etCardInfo"
+                    android:tag="@{itemViewModel.inputType}"
+                    android:textSize="@dimen/size_text_content"
+                    android:maxLines="1"
+                    android:maxLength="@{itemViewModel.maxLenght}"
+                    android:inputType="@{itemViewModel.inputType}"
+                    android:background="@null"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:padding="@dimen/margin_mini_x"
+                    android:imeOptions="@{itemViewModel.actionId}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:defaultHint="@{itemViewModel.defaultHint}"/>
+
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+            <View
+                android:visibility="@{itemViewModel.type == BookingCreditCardInputType.EXPIRY_DATE ? View.VISIBLE : View.GONE}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.3">
+            </View>
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView
+                android:id="@+id/inputCardInfo3"
+                android:tag="CadViewInputCardInfo"
+                android:visibility="@{itemViewModel.type == BookingCreditCardInputType.EXPIRY_DATE ? View.VISIBLE : View.GONE}"
+                style="@style/Widget.Neumorph.InputView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btnShowInfo"
+                app:neumorph_inset="@dimen/margin_short"
+                android:layout_weight="1">
+
+                <com.xcaret.xcaret_hotel.view.config.inputview.view.InputView
+                    android:id="@+id/etCardInfo3"
+                    android:tag="@{itemViewModel.inputType}"
+                    android:textSize="@dimen/size_text_content"
+                    android:maxLines="1"
+                    android:maxLength="@{itemViewModel.maxLenght}"
+                    android:inputType="numberPassword"
+                    android:background="@null"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:padding="@dimen/margin_mini_x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeumorphCardView>
+
+            <ImageView
+                android:id="@+id/btnShowInfo"
+                android:layout_gravity="center_vertical"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginHorizontal="@dimen/margin_short"
+                android:layout_marginTop="@dimen/margin_short"
+                android:layout_marginBottom="6dp"
+                android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+                android:src="@drawable/ic_info"
+                android:visibility="@{itemViewModel.type == BookingCreditCardInputType.EXPIRY_DATE ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorTextAction" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

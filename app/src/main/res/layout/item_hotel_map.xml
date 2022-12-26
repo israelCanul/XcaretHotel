@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View" />
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <import type="com.xcaret.xcaret_hotel.view.config.Constants"/>
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.Hotel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layoutContent"
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/margin_short"
+        android:gravity="center"
+        android:layout_height="44dp">
+
+        <TextView
+            android:textSize="@{itemViewModel.selected ? @dimen/size_text_map_hotel : @dimen/size_text_content_min }"
+            android:text="@{itemViewModel.name}"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_margin="@dimen/margin_short"
+            android:maxLines="2"/>
+
+        <View
+            android:visibility="@{itemViewModel.selected ? View.VISIBLE : View.GONE}"
+            android:layout_marginHorizontal="@dimen/margin_short"
+            android:backgroundColor="@{itemViewModel.baseColor}"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"/>
+
+    </LinearLayout>
+</layout>

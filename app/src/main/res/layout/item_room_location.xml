@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.Place" />
+    </data>
+
+    <TextView
+        android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+        style="@style/AppTheme.TextContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{itemViewModel.lang.title}"
+        android:gravity="center"
+        android:layout_marginHorizontal="@dimen/margin_large"
+        android:focusable="false"/>
+
+</layout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundAlert">
+
+    <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.85"
+        app:neomorph_elevation="@dimen/margin_mini_x"
+        app:neomorph_corner_radius="@dimen/margin_large">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_alert">
+
+            <LinearLayout
+                android:id="@+id/layoutHeader"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_large_xx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:visibility="visible"
+                    android:id="@+id/txtTitle"
+                    style="@style/AppTheme.TitleH1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_welcome"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:src="@drawable/ic_default_main_activity"
+                    android:layout_gravity="center"
+                    app:tint="@android:color/white"
+                    android:padding="@dimen/margin_short"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtMessage"
+                style="@style/AppTheme.TextContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="@dimen/margin_large_x"
+                android:layout_marginTop="@dimen/margin_large_xx"
+                app:layout_constraintTop_toBottomOf="@id/layoutHeader"/>
+
+            <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large_xx"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                app:layout_constraintTop_toBottomOf="@id/txtMessage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btnAccept"
+                app:shape_roundRect_borderColor="@color/colorButtonWhiteOutline"
+                app:shape_roundRect_borderWidth="1dp"
+                app:shape_roundRect_bottomLeftRadius="@dimen/margin_short"
+                app:shape_roundRect_bottomRightRadius="@dimen/margin_short"
+                app:shape_roundRect_topLeftRadius="@dimen/margin_short"
+                app:shape_roundRect_topRightRadius="@dimen/margin_short">
+
+                <TextView
+                    android:id="@+id/lblCancel"
+                    android:text="@string/btn_cancel"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="@dimen/margin_default"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+            <com.xcaret.xcaret_hotel.view.config.RoundCornerLayout
+                android:id="@+id/btnAccept"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large_xx"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                app:layout_constraintTop_toBottomOf="@id/txtMessage"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btnCancel"
+                app:cornerRadius="@dimen/margin_short"
+                app:topLeftEnabled="true"
+                app:topRightEnabled="true"
+                app:bottomLeftEnabled="true"
+                app:bottomRightEnabled="true">
+
+                <FrameLayout
+                    android:background="@color/colorButtonPinkFlat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lblAccept"
+                        android:text="@string/btn_accept"
+                        android:layout_gravity="center"
+                        android:textColor="@android:color/white"
+                        android:layout_marginVertical="@dimen/margin_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </FrameLayout>
+
+            </com.xcaret.xcaret_hotel.view.config.RoundCornerLayout>
+
+            <Space
+                app:layout_constraintTop_toBottomOf="@id/btnAccept"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_large_xx"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

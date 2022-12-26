@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground1"
+    android:id="@+id/layoutMain"
+    tools:context=".view.menu.ui.CallUsDialogFragment">
+
+    <View
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_short"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_shadow_large"
+        android:background="@drawable/shadow_bottom_bar"
+        android:translationY="8dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutContent"/>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:shape_roundRect_topRightRadius="@dimen/margin_large"
+        app:shape_roundRect_topLeftRadius="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/statusBar"
+        app:layout_constraintBottom_toTopOf="@id/auxNavigation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/gradient_windows"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/txtClose"
+                app:tint="@color/colorIconClose"
+                android:src="@drawable/ic_baseline_close_24"
+                android:layout_margin="@dimen/margin_default"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/margin_short"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:id="@+id/txtTitle"
+                style="@style/AppTheme.TitleH1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtClose"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textStyle="bold"
+                android:text="@string/lbl_call_us_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.xcaret.xcaret_hotel.view.config.discretescrollview.DiscreteScrollView
+                android:id="@+id/rvContacts"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:dsv_orientation="vertical"
+                android:layout_marginHorizontal="@dimen/margin_large"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <View
+        android:id="@+id/auxNavigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorBackgroundNavigation_Aux"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

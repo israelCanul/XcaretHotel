@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+        <item name="android:navigationBarColor">@color/colorBackgroundNavigation</item>
+        <item name="android:timePickerStyle">@style/AppTheme.TimePickerDialog.Widget</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/AppTheme.TimePickerDialog.Button</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/AppTheme.TimePickerDialog.Button</item>
+        <item name="snackbarStyle">@style/Widget.SnackBar</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:navigationBarColor">@color/colorBackgroundNavigation</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="AppTheme.TimePickerDialog.Widget" parent="android:Widget.Material.TimePicker">
+        <item name="android:headerBackground">@color/colorHeaderBackgroundTimerDialog</item>
+        <item name="android:numbersTextColor">@color/colorNumberTextColor</item>
+        <item name="android:numbersSelectorColor">@color/colorNumberTextSelectColor</item>
+        <item name="android:numbersBackgroundColor">@color/numbersBackgroundColor</item>
+        <item name="android:background">@color/colorBackgroundTimerDialog</item>
+        <item name="android:colorAccent">@color/colorNumberTextColor</item>
+    </style>
+
+    <style name="AppTheme.TimePickerDialog.Button" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="backgroundTint">@color/colorBackgroundTimerDialog</item>
+    </style>
+
+    <style name="AppTheme.Switch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/colorSwitchActive</item>
+        <item name="colorSwitchThumbNormal">@color/colorSwitchInactive</item>
+        <item name="android:colorForeground">@color/colorSwitchBg</item>
+    </style>
+
+    <style name="FABShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">32dp</item>
+    </style>
+
+    <style name="InputNeumorphism" parent="">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">8dp</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="android:padding">0dp</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/colorBackgroundNavigation</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="ShapeAppearance.Neumorph.SwitchBg" parent="">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">@dimen/margin_large_xx</item>
+    </style>
+
+    <style name="AppTheme.TitleH1">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_h1</item>
+    </style>
+    <style name="AppTheme.TitleMonth">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_h2</item>
+    </style>
+
+    <style name="AppTheme.TitleH2">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_h2</item>
+    </style>
+    <style name="AppTheme.TitleH3">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_h3</item>
+    </style>
+
+    <style name="AppTheme.TitleH4">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_h4</item>
+    </style>
+
+    <style name="AppTheme.TextContent">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_content</item>
+    </style>
+
+    <style name="AppTheme.TextContentMin">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/size_text_content_min</item>
+    </style>
+
+    <style name="Widget.Neumorph.InputView" parent="android:Widget">
+        <item name="android:padding">@dimen/design_default_padding</item>
+        <item name="neumorph_inset">@dimen/design_default_inset</item>
+        <item name="neumorph_shadowElevation">@dimen/elevation_mini</item>
+        <item name="neumorph_shadowColorLight">@color/colorInputLight</item>
+        <item name="neumorph_shadowColorDark">@color/colorInputDark</item>
+        <item name="neumorph_backgroundColor">@color/colorInputBackground</item>
+        <item name="neumorph_shapeType">pressed</item>
+        <item name="neumorph_shapeAppearance">@style/ShapeAppearance.Neumorph.CardView</item>
+    </style>
+
+    <!--    <style name="Widget.Neumorph.Separator">-->
+    <!--        <item name="android:layout_height">3dp</item>-->
+    <!--        <item name="neomorph_elevation">1dp</item>-->
+    <!--        <item name="neomorph_background_color">@color/colorSeparatorBackground</item>-->
+    <!--        <item name="neomorph_highlight_color">@color/colorSeparatorLight</item>-->
+    <!--        <item name="neomorph_shadow_color">@color/colorSeparatorDark</item>-->
+    <!--        <item name="neomorph_shadow_type">inner</item>-->
+    <!--    </style>-->
+
+    <style name="Widget.Neumorph.Separator">
+        <item name="android:layout_height">3dp</item>
+        <item name="neomorph_elevation">1dp</item>
+        <item name="neomorph_background_color">@color/colorSeparatorBackground</item>
+        <item name="neomorph_highlight_color">@color/colorSeparatorLight</item>
+        <item name="neomorph_shadow_color">@color/colorSeparatorDark</item>
+        <item name="neomorph_shadow_type">inner</item>
+    </style>
+
+    <style name="Widget.Neumorph.OrangeButton">
+        <item name="neomorph_background_color">@color/colorButtonOrange</item>
+        <item name="neomorph_highlight_color">@color/colorButtonOrangeLight</item>
+        <item name="neomorph_shadow_color">@color/colorButtonOrangeDark</item>
+        <item name="neomorph_elevation">@dimen/elevation_short</item>
+        <item name="neomorph_corner_radius">@dimen/radius_short</item>
+    </style>
+
+    <style name="Widget.Neumorph.BlueButton">
+        <item name="neomorph_background_color">@color/colorButtonBlue</item>
+        <item name="neomorph_highlight_color">@color/colorButtonBlueLight</item>
+        <item name="neomorph_shadow_color">@color/colorButtonBlueDark</item>
+        <item name="neomorph_elevation">@dimen/elevation_short</item>
+        <item name="neomorph_corner_radius">@dimen/radius_default</item>
+    </style>
+
+    <style name="Widget.Neumorph.BlueButtonNoShadow">
+        <item name="neomorph_background_color">@color/colorButtonBlue</item>
+        <item name="neomorph_highlight_color">@color/colorButtonBlueLight_Transparency</item>
+        <item name="neomorph_shadow_color">@color/colorButtonBlueDark_Transparency</item>
+        <item name="neomorph_elevation">@dimen/elevation_short</item>
+        <item name="neomorph_corner_radius">@dimen/radius_default</item>
+    </style>
+
+    <style name="Widget.Neumorph.PinkButton">
+        <item name="neomorph_background_color">@color/colorButtonPink</item>
+        <item name="neomorph_highlight_color">@color/colorButtonPinkLight</item>
+        <item name="neomorph_shadow_color">@color/colorButtonPinkDark</item>
+        <item name="neomorph_elevation">@dimen/elevation_short</item>
+        <item name="neomorph_corner_radius">@dimen/radius_short</item>
+    </style>
+
+    <style name="Widget.Neumorph.White" parent="Widget.Neumorph.CardView">
+        <item name="neumorph_backgroundColor">@color/colorCardBackground</item>
+        <!--        <item name="neumorph_shadowColorLight">@color/colorShadowLight</item>-->
+        <item name="neumorph_shadowColorLight">@color/colorShadowLightTrasparency</item>
+        <item name="neumorph_shadowColorDark">@color/colorShadowBottom1</item>
+        <item name="neumorph_strokeColor">@color/colorCardOutline</item>
+        <item name="neumorph_strokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.Neumorph.Quotes" parent="Widget.Neumorph.CardView">
+        <item name="neumorph_backgroundColor">@color/colorCardBackgroundQuotes</item>
+        <item name="neumorph_shadowColorLight">@color/colorCardLightQuotes</item>
+        <item name="neumorph_shadowColorDark">@color/colorCardDarkQuotes</item>
+        <item name="neumorph_strokeColor">@color/colorCardOutlineQuotes</item>
+        <item name="neumorph_strokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.Neumorph.Location" parent="Widget.Neumorph.CardView">
+        <!--        <item name="neumorph_shadowColorLight">@color/colorLocationLight</item>-->
+        <item name="neumorph_shadowColorLight">@color/colorLocationLightTransparency</item>
+        <item name="neumorph_shadowColorDark">@color/colorLocationDark</item>
+    </style>
+
+    <style name="AppTheme.TimePickerDialog" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="showTitle">false</item>
+        <item name="colorControlActivated">#ffd600</item>
+        <item name="colorAccent">#b71c1c</item>
+        <item name="android:textColorPrimary">#43a047</item>
+        <item name="android:textColorSecondary">#f44336</item>
+    </style>
+
+    <style name="Widget.SnackBar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+</resources>

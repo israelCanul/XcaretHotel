@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layoutContent">
+
+    <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+        android:id="@+id/bg"
+        android:layout_margin="@dimen/margin_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:neomorph_view_type="rectangular"
+        app:neomorph_shadow_type="outer"
+        app:neomorph_shadow_visible="false"
+        app:neomorph_elevation="1dp"
+        app:neomorph_corner_radius="@dimen/radius_short"
+        app:neomorph_background_color="@color/colorSwitchBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+            android:id="@+id/bgAnim2"
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:neomorph_view_type="rectangular"
+            app:neomorph_shadow_type="outer"
+            app:neomorph_shadow_visible="true"
+            app:neomorph_elevation="2dp"
+            app:neomorph_corner_radius="@dimen/radius_short"
+            app:layout_constraintWidth_percent=".48"
+            app:layout_constraintTop_toTopOf="@id/bg"
+            app:layout_constraintLeft_toLeftOf="@id/bg"
+            app:layout_constraintBottom_toBottomOf="@id/bg">
+
+            <View
+                android:id="@+id/bgAnim"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_switch_selected"/>
+
+        </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+        android:id="@+id/txtLeftText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/lbl_recomendations"
+        android:textColor="@color/colorSwitchText"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="@id/guidelineVertical"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toTopOf="@id/bg"
+        app:layout_constraintLeft_toLeftOf="@id/bg"
+        app:layout_constraintBottom_toBottomOf="@id/bg"
+        app:key="@string/rkey_recomendation"/>
+
+    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+        android:id="@+id/txtRightText"
+        style="@style/AppTheme.TextContentMin"
+        android:layout_width="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/lbl_include"
+        android:textColor="@color/colorTextPrimary"
+        app:layout_constraintRight_toRightOf="@id/bg"
+        app:layout_constraintLeft_toRightOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@id/bg"
+        app:layout_constraintBottom_toBottomOf="@id/bg"
+        app:key="@string/rkey_include"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent=".5"
+        android:orientation="vertical" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

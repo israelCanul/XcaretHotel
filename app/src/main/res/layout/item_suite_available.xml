@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.xcaret.xcaret_hotel.data.repository.FirebaseReference"/>
+        <import type="android.view.View" />
+
+        <variable
+            name="itemViewModel"
+            type="com.xcaret.xcaret_hotel.domain.RoomType" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layoutContent"
+            android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:layout_marginVertical="@dimen/margin_short_x"
+            app:cardBackgroundColor="@color/colorCardBackground"
+            app:cardCornerRadius="@dimen/margin_medium"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+                    android:id="@+id/imgLayout"
+                    android:layout_width="match_parent"
+                    android:layout_margin="@dimen/margin_mini_x"
+                    android:layout_height="130dp"
+                    app:shape_roundRect_topLeftRadius="@dimen/margin_medium"
+                    app:shape_roundRect_topRightRadius="@dimen/margin_medium"
+                    app:shape_roundRect_bottomRightRadius="@dimen/margin_medium"
+                    app:shape_roundRect_bottomLeftRadius="@dimen/margin_medium"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:src="@drawable/hxm_default"
+                        android:imageByHotel="@{itemViewModel.lang.image}"
+                        android:referenceByHotel="@{FirebaseReference.ROOM_TYPE}"
+                        android:onlyThumbs="@{true}"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+                <TextView
+                    android:id="@+id/txtRoomName"
+                    style="@style/AppTheme.TextContent"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginTop="@dimen/margin_short"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{itemViewModel.lang.formatTitle()}"
+                    app:layout_constraintTop_toBottomOf="@id/imgLayout"
+                    app:layout_constraintRight_toLeftOf="@id/txtMoreInfo"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/txtViewRoom"
+                    style="@style/AppTheme.TextContentMin"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mini"
+                    android:drawableStartCompat="@{itemViewModel.amenityView.icon}"
+                    android:drawablePadding="@dimen/margin_short"
+                    android:gravity="center"
+                    android:text="@{itemViewModel.amenityView.lang.description}"
+                    app:drawableTint="@color/colorTextSecondary"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    app:layout_constraintTop_toBottomOf="@id/txtRoomName"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    style="@style/AppTheme.TextContent"
+                    android:textColor="@color/colorTextSecondary"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_marginTop="@dimen/margin_mini"
+                    android:layout_marginHorizontal="@dimen/margin_default"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{itemViewModel.partOfThePrice(false)}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtViewRoom"
+                    />
+
+                <TextView
+                    android:id="@+id/txtDecimalPart"
+                    style="@style/AppTheme.TextContentMin"
+                    android:textColor="@color/colorTextSecondary"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{itemViewModel.partOfThePrice(true)}"
+                    android:layout_marginTop="@dimen/margin_mini_x"
+                    app:layout_constraintLeft_toRightOf="@id/txtPrice"
+                    app:layout_constraintTop_toBottomOf="@id/txtViewRoom"
+                    />
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:id="@+id/txtPolices"
+                    style="@style/AppTheme.TextContentMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_short_x"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick='@{(v)-> itemViewModel.onListItemViewClickListener.onClick(v, itemViewModel.adapterPosition) }'
+                    android:text="@string/lbl_see_policies"
+                    android:textColor="@color/colorTextAction"
+                    android:textStyle="italic"
+                    app:key="@string/rkey_lbl_see_policies"
+                    android:layout_marginBottom="@dimen/margin_short"
+                    app:layout_constraintLeft_toLeftOf="@id/txtPrice"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    android:id="@+id/txtMoreInfo"
+                    style="@style/AppTheme.TextContentMin"
+                    android:textStyle="italic"
+                    android:textColor="@color/colorTextAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_more_info"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_short_x"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick='@{(v)-> itemViewModel.onClickMoreInfo(v) }'
+                    app:layout_constraintTop_toBottomOf="@id/imgLayout"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:key="@string/rkey_lbl_more_info"/>
+
+                <androidx.cardview.widget.CardView
+                    android:visibility="@{itemViewModel.selected ? View.GONE : View.VISIBLE}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginEnd="@dimen/margin_default"
+                    app:cardCornerRadius="@dimen/radius_short"
+                    app:cardBackgroundColor="@color/colorButtonBlue"
+                    app:layout_constraintBottom_toBottomOf="@id/txtPolices"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        style="@style/AppTheme.TextContentMin"
+                        android:textColor="@color/colorButtonText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/margin_short_x"
+                        android:layout_marginHorizontal="@dimen/margin_large_x"
+                        android:text="@string/lbl_select"
+                        app:key="@string/rkey_lbl_select"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.CircleView
+                    android:visibility="@{itemViewModel.selected ? View.VISIBLE : View.GONE}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_default"
+                    android:layout_marginTop="@dimen/margin_short"
+                    android:elevation="2dp"
+
+                    app:layout_constraintBottom_toBottomOf="@id/txtPolices"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <FrameLayout
+                        android:background="@color/colorIconRoomSelected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:src="@drawable/ic_select"
+                            app:tint="@android:color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </FrameLayout>
+
+                </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.CircleView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+        <View
+            app:layout_constraintRight_toRightOf="@id/layoutContent"
+            app:layout_constraintLeft_toLeftOf="@id/layoutContent"
+            app:layout_constraintBottom_toBottomOf="@id/layoutContent"
+            android:background="@drawable/shadow_top_header"
+            android:layout_width="0dp"
+            android:translationY="7dp"
+            android:layout_height="@dimen/height_shadow_largex"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

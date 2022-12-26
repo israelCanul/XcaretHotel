@@ -1,0 +1,151 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.crashlytics'
+
+def versionMajor = 2
+def versionMinor = 2
+def versionPatch = 0
+
+android {
+    signingConfigs {
+        dev {
+            storeFile file('develop.jks')
+            keyAlias 'hotelxcaret'
+            storePassword PWS_DEVELOP
+            keyPassword PWS_DEVELOP
+        }
+        prod {
+            storeFile file('production.jks')
+            keyAlias 'hotelxcaret'
+            storePassword PWS_PRODUCTION
+            keyPassword PWS_PRODUCTION
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.xcaret.xcaret_hotel"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode versionMajor * 10000 + versionMinor * 100+ versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.prod
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.dev
+            buildConfigField "String", "DBCore", "\"https://hotelxcaretmexico-dev.firebaseio.com\""
+            buildConfigField "String", "DBStorage", "\"gs://hotelxcaretmexico-b273b.appspot.com\""
+            buildConfigField "String", "DBReservations", "\"https://hotelxcaretmexico-reservations-dev.firebaseio.com\""
+            buildConfigField "String", "MC_ACCESS_TOKEN", "\"Z1UxhQC8RH0NHIaoDa3HqWeM\""
+            buildConfigField "String", "MC_APPLICATION_ID", "\"abe1442a-5010-4bc5-843b-6a2ae5b22a82\""
+            versionNameSuffix "-dev"
+        }
+    }
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.maps.android:android-maps-utils:2.2.0'
+    implementation 'com.google.android.play:core:1.10.0'
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx'
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+    //implementation 'com.google.firebase:firebase-inappmessaging-ktx'
+    //implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-functions-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
+
+    // Facebook Core only (Analytics)
+    implementation 'com.facebook.android:facebook-core:9.0.0'
+    implementation 'com.facebook.android:facebook-login:5.15.3'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.2.1"
+
+    //aws
+    implementation 'com.amplifyframework:core:1.30.0'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.30.0'
+
+    //arquitecture components
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+
+    //implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+
+    //anko
+    implementation "org.jetbrains.anko:anko:$rootProject.ankoVersion"
+
+    //external
+    implementation 'com.airbnb.android:lottie:3.4.1'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
+
+    //tool support for the new language APIS
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    //Salesforce - Marketing Cloud
+    implementation 'com.salesforce.marketingcloud:marketingcloudsdk:8.0.4'
+
+    //security share preferences
+    implementation 'androidx.security:security-crypto:1.0.0'
+
+    //Coroutines Kotlin
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+
+    //ImageViewer
+    implementation 'com.github.stfalcon-studio:StfalconImageViewer:v1.0.1'
+}

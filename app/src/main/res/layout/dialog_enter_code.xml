@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layoutMain"
+    android:background="@color/colorBackground1"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_short"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_shadow_large"
+        android:background="@drawable/shadow_bottom_bar"
+        android:translationY="8dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutContent"/>
+
+    <com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusBar"
+        app:layout_constraintBottom_toTopOf="@id/auxNavigation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/gradient_windows"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/txtClose"
+                app:tint="@color/colorIconClose"
+                android:src="@drawable/ic_baseline_close_24"
+                android:layout_margin="@dimen/margin_default"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/margin_short"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:id="@+id/txtTitle"
+                style="@style/AppTheme.TitleH1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large_x"
+                android:text="@string/verification_account_title"
+                android:textStyle="bold"
+                app:key="@string/rkey_verification_account_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtClose" />
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:id="@+id/txtSubTitle"
+                style="@style/AppTheme.TextContent"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_height="wrap_content"
+                android:text="@string/verification_account_msg"
+                android:textAlignment="center"
+                app:key="@string/rkey_verification_account_msg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+
+            <com.xcaret.xcaret_hotel.view.config.InputCodeView
+                android:id="@+id/inputCode"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubTitle" />
+
+
+            <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                android:id="@+id/txtSendCodeAgain"
+                style="@style/AppTheme.TextContentMin"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputCode"
+                android:layout_marginTop="@dimen/margin_default"
+                android:textColor="@color/colorTextAction"
+                android:textAlignment="center"
+                android:text="@string/password_recovery_send_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:key="@string/rkey_password_recovery_send_code"/>
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+                android:id="@+id/btnVerify"
+                style="@style/Widget.Neumorph.BlueButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large_xx"
+                android:layout_gravity="center"
+                app:layout_constraintLeft_toLeftOf="@id/inputCode"
+                app:layout_constraintRight_toRightOf="@id/inputCode"
+                app:layout_constraintTop_toBottomOf="@id/txtSendCodeAgain">
+
+                <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                    style="@style/AppTheme.TextContent"
+                    android:text="@string/btn_verify"
+                    android:textAlignment="center"
+                    android:layout_margin="@dimen/margin_default"
+                    android:textColor="@color/colorButtonText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:key="@string/rkey_btn_verify"/>
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>
+
+    <View
+        android:id="@+id/auxNavigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorBackgroundNavigation_Aux"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <gradient
+        android:startColor="@color/colorCardTypeMCStart"
+        android:centerColor="@color/colorCardTypeMCCenter"
+        android:endColor="@color/colorCardTypeMCEnd"
+        android:angle="225"/>
+
+    <corners android:radius="@dimen/margin_large"/>
+</shape>

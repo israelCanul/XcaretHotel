@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/separatorTop"
+        android:layout_marginHorizontal="@dimen/margin_large_x"
+        android:background="@color/colorFilterSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtRoot"
+            style="@style/AppTheme.TextContent"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:drawableTint="@color/colorIconFilter"
+            app:drawableStartCompat="@drawable/filter_default"
+            android:layout_marginTop="@dimen/margin_large"
+            android:drawablePadding="@dimen/margin_medium"
+            android:layout_marginHorizontal="@dimen/margin_large_x"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/showMore"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large_x"
+            android:src="@drawable/ic_down_circle"
+            app:tint="@color/colorIconFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_marginHorizontal="@dimen/margin_large_x"
+        android:background="@color/colorFilterSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"/>
+
+</LinearLayout>

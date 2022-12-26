@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbarViewInside"
+    android:layout_width="match_parent"
+    android:elevation="4dp"
+    android:layout_height="@dimen/height_toolbar"
+    app:shape_roundRect_bottomRightRadius="@dimen/margin_large"
+    app:shape_roundRect_bottomLeftRadius="@dimen/margin_large"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorBackgroundTop"
+        android:elevation="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnToolbarBack"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginStart="@dimen/margin_default"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/colorTopIcon" />
+
+        <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+            android:id="@+id/txtToolbarTitle"
+            style="@style/AppTheme.TitleH2"
+            android:text="@string/cart_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnToolbarBack"
+            app:layout_constraintBottom_toBottomOf="@id/btnToolbarBack"
+            android:textColor="@color/colorTopTitle"
+            android:textStyle="bold"
+            app:key="@string/rkey_cart_title"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.xcaret.xcaret_hotel.view.config.shapeofview.shapes.RoundRectView>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- base -->
+    <dimen name="margin_mini">2dp</dimen>
+    <dimen name="margin_mini_x">4dp</dimen>
+    <dimen name="margin_short">6dp</dimen>
+    <dimen name="margin_short_x">8dp</dimen>
+    <dimen name="margin_default">10dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_large__">21dp</dimen>
+    <dimen name="margin_large_x">24dp</dimen>
+    <dimen name="margin_large_xx">32dp</dimen>
+    <dimen name="height_toolbar">40dp</dimen>
+    <dimen name="height_shadow_min">1dp</dimen>
+    <dimen name="height_shadow_short">4dp</dimen>
+    <dimen name="height_shadow_default">8dp</dimen>
+    <dimen name="height_shadow_medium">10dp</dimen>
+    <dimen name="height_shadow_large">16dp</dimen>
+    <dimen name="height_shadow_largex">20dp</dimen>
+    <dimen name="height_shadow_largexx">24dp</dimen>
+    <dimen name="elevation_mini">2dp</dimen>
+    <dimen name="elevation_mini_x">3dp</dimen>
+    <dimen name="elevation_short">4dp</dimen>
+    <dimen name="elevation_medium">6dp</dimen>
+    <dimen name="elevation_default">8dp</dimen>
+    <dimen name="elevation_large">16dp</dimen>
+    <dimen name="radius_short">8dp</dimen>
+    <dimen name="radius_default">10dp</dimen>
+    <dimen name="radius_large">16dp</dimen>
+    <dimen name="fab_size">48dp</dimen>
+    <dimen name="filter_house_height">100dp</dimen>
+    <dimen name="filter_generic_height">100dp</dimen>
+    <dimen name="corner_default">18dp</dimen>
+    <dimen name="avatar_size_default">70dp</dimen>
+    <dimen name="resize_with_anim_pay_btn">64dp</dimen>
+    <dimen name="item_menu_primary_width">120dp</dimen>
+    <dimen name="item_menu_primary_height">125dp</dimen>
+    <dimen name="lottie_anim_size">80dp</dimen>
+    <dimen name="item_height_tab_quotes">90dp</dimen>
+    <dimen name="item_height_min_tab_quotes">56dp</dimen>
+    <dimen name="item_width_tab_quotes">180dp</dimen>
+    <dimen name="height_header_quotes">160dp</dimen>
+    <dimen name="width_field_default">160dp</dimen>
+    <dimen name="width_header_short">160dp</dimen>
+
+    <!-- height space aux -->
+    <dimen name="height_default_space">16dp</dimen>
+    <dimen name="height_large_space">56dp</dimen>
+    <dimen name="heigth_spinner">60dp</dimen>
+
+    <!-- size text and space -->
+    <dimen name="size_text_h1">22sp</dimen>
+    <dimen name="size_text_h2">18sp</dimen>
+    <dimen name="size_text_h4">15sp</dimen>
+    <dimen name="size_text_h3">20sp</dimen>
+    <dimen name="size_text_content">14sp</dimen>
+    <dimen name="size_text_content_min">12sp</dimen>
+    <dimen name="size_text_content_min_dp">12dp</dimen>
+    <dimen name="size_text_content_nano">10sp</dimen>
+    <dimen name="size_space_text_default">5sp</dimen>
+    <dimen name="size_text_map_hotel">15sp</dimen>
+
+    <!-- size text and layout code -->
+    <dimen name="size_text_code">24dp</dimen>
+    <dimen name="height_input_code">52dp</dimen>
+    <dimen name="width_input_code">35dp</dimen>
+
+    <!-- splash -->
+    <dimen name="lbl_size_company_name">14sp</dimen>
+    <dimen name="lbl_size_copyright">11sp</dimen>
+    
+    <!-- home -->
+    <dimen name="radius_header_home">10dp</dimen>
+    <dimen name="radius_header_large">16dp</dimen>
+    <dimen name="corner_filter_casa">16dp</dimen>
+    <dimen name="corner_filter_generic">16dp</dimen>
+
+    <!-- filter generic category -->
+    <dimen name="filter_generic_category">8sp</dimen>
+    <dimen name="filter_generic_category_selected">16sp</dimen>
+    <dimen name="filter_generic_margin">10dp</dimen>
+    <dimen name="filter_generic_margin_selected">4dp</dimen>
+    <dimen name="filter_generic_elevation">0dp</dimen>
+    <dimen name="filter_generic_elevation_selected">4dp</dimen>
+    <dimen name="filter_building_margin">16dp</dimen>
+    <dimen name="filter_building_margin_selected">4dp</dimen>
+    <item name="filter_generic_top" type="dimen" format="float">0.1</item>
+    <item name="filter_generic_bottom" type="dimen" format="float">0.9</item>
+    <item name="filter_generic_selected_top" type="dimen" format="float">0.25</item>
+    <item name="filter_generic_selected_bottom" type="dimen" format="float">0.75</item>
+
+    <!-- menu -->
+    <dimen name="menu_text_size">14sp</dimen>
+
+    <!-- map -->
+    <dimen name="map_marker_size">18dp</dimen>
+    <dimen name="map_marker_size_selected">48dp</dimen>
+    <dimen name="map_marker_border">4dp</dimen>
+    <dimen name="map_marker_border_selected">4dp</dimen>
+
+    <!-- card image size -->
+    <dimen name="card_footer_width">40dp</dimen>
+    <dimen name="card_footer_height">40dp</dimen>
+
+    <dimen name="card_bank_width">110dp</dimen>
+    <dimen name="card_bank_height">70dp</dimen>
+</resources>
