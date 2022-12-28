@@ -105,4 +105,16 @@
 
     <dimen name="card_bank_width">110dp</dimen>
     <dimen name="card_bank_height">70dp</dimen>
+
+
+
+    <!-- dimens for photo pass -->
+    <dimen name="adapterSquareWith">100dp</dimen>
+    <dimen name="adapterSquareHeight">100dp</dimen>
+
+    <dimen name="margin_dx">10dp</dimen>
+    <dimen name="radius">10dp</dimen>
+    <dimen name="elevation">5dp</dimen>
+
+
 </resources>

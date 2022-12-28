@@ -334,4 +334,13 @@
 
     <color name="colorCardTypeShadow">#D6B295</color>
     <!-- end color cards bg -->
+
+
+
+<!--      color for photo pass-->
+    <color name="colorPhoto">#FFE512</color>
+    <color name="colorPhotoBttom">#80000000</color>
+    <color name="colorPhotoActionBttom">#66000000</color>
+    <color name="colorPhotoDisabled">#AAA7A7</color>
+
 </resources>

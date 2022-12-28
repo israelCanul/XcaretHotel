@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/android/hxm_ANDROID/app/src/main/res/layout/menu_fragment.xml" value="0.3596014492753623" />
+        <entry key="..\:/android/hxm_ANDROID/app/src/main/res/drawable/gradient_generic_filter.xml" value="0.2365" />
+        <entry key="..\:/android/hxm_ANDROID/app/src/main/res/drawable/gradient_generic_photopass.xml" value="0.2365" />
+        <entry key="..\:/android/hxm_ANDROID/app/src/main/res/layout/menu_fragment.xml" value="0.29078947368421054" />
         <entry key="app/src/main/res/drawable/amenity_room_icon.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/amenity_room_rest_icon.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/amenity_room_service_icon.xml" value="0.214" />

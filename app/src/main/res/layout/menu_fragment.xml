@@ -83,6 +83,63 @@
 
             <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
                 android:visibility="@{viewModel.userLiveData.provider_value.equals(ProviderType.Visitor.value) ? View.GONE : View.VISIBLE}"
+                android:id="@+id/optPhoto"
+                android:layout_width="@dimen/item_menu_primary_width"
+                android:layout_height="@dimen/item_menu_primary_height"
+                android:layout_marginTop="@dimen/margin_large"
+                app:neomorph_elevation="@dimen/elevation_short"
+                app:neomorph_shadow_type="outer"
+                app:neomorph_view_type="rectangular"
+                app:neomorph_corner_radius="@dimen/corner_filter_generic"
+                app:layout_constraintRight_toLeftOf="@id/optMyReservations"
+                app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:neumorph_shapeType="flat">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@drawable/gradient_generic_photopass"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationView"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        app:lottie_autoPlay="true"
+                        app:lottie_fileName="camara.json"
+                        app:lottie_imageAssetsFolder="assets"
+                        app:lottie_loop="true"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/txtPhotoPass"
+                        />
+
+                    <com.xcaret.xcaret_hotel.view.config.labelview.view.LabelView
+                        android:id="@+id/txtPhotoPass"
+                        style="@style/AppTheme.TextContentMin"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:text="@{viewModel.lblTitlePhotosByAlbum}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_short"
+                        android:layout_marginBottom="@dimen/margin_short"
+                        android:textColor="@color/colorIconMyReservation"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:key="@string/rkey_my_reservations_title"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout>
+
+
+            <com.xcaret.xcaret_hotel.view.config.neumorphism.NeomorphFrameLayout
+                android:visibility="@{viewModel.userLiveData.provider_value.equals(ProviderType.Visitor.value) ? View.GONE : View.VISIBLE}"
                 android:id="@+id/optMyReservations"
                 android:layout_width="@dimen/item_menu_primary_width"
                 android:layout_height="@dimen/item_menu_primary_height"
