@@ -116,5 +116,11 @@
     <dimen name="radius">10dp</dimen>
     <dimen name="elevation">5dp</dimen>
 
-
+    <dimen name="toolbarTopPhotos">70dp</dimen>
+    <dimen name="backTopPhotos">35dp</dimen>
+    <dimen name="separator">5dp</dimen>
+    <dimen name="gallery_bottom">55dp</dimen>
+    <dimen name="albumHeight">160dp</dimen>
+    <dimen name="iconCornersize">36dp</dimen>
+    <dimen name="albumTraslucent">80dp</dimen>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lbl_free">Incluido</string>s
+    <string name="lbl_photo">Fotos</string>
+
+    <string name="purchaseTotalHeaderb"> parques.Restan</string>
+    <string name="purchaseTotalHeadera">Tu compra fue por</string>
+    <string name="purchaseTotal"><![CDATA[Tu compra fue por <b>%1$d parques</b>. Restan <b>%2$d</b>  ]]></string>
+    <!-- PhotoPass -->
+    <string name="lbl_validate_day_photopass">Tus fotografias están próximas a vencer:</string>
+    <string name="lbl_validate_day_photopass_download">¡Descargalas!</string>
+    <string name="lbl_validate_photopassa">Tienes</string>
+    <string name="lbl_validate_photopassb">días a partir de tu visita para descargar tus fotografias.</string>
+    <string name="lbl_expirate_photopass">Tus fotografias vencieron.</string>
+</resources>

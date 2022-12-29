@@ -7,6 +7,9 @@ import androidx.room.RoomDatabase
 import com.xcaret.xcaret_hotel.BuildConfig
 import com.xcaret.xcaret_hotel.data.room.dao.*
 import com.xcaret.xcaret_hotel.domain.*
+import com.xcaret.xcaret_hotel.view.photopass.data.room.dao.PhotoCodesDao
+import com.xcaret.xcaret_hotel.view.photopass.domain.AlbumList
+import com.xcaret.xcaret_hotel.view.photopass.domain.PhotoCodes
 
 @Database(entities = [
     Airline::class,
@@ -63,7 +66,8 @@ import com.xcaret.xcaret_hotel.domain.*
     AfiClass::class,
     LangAfiClass::class,
     LangDestinationActivity::class,
-    LangDestination::class
+    LangDestination::class,
+    PhotoCodes::class, AlbumList::class,// se agrega para el modulo de photo pass
 ], version = BuildConfig.VERSION_CODE, exportSchema = false)
 
 abstract class HotelAppDatabase: RoomDatabase(){
@@ -131,6 +135,10 @@ abstract class HotelAppDatabase: RoomDatabase(){
     abstract fun galleryDao():GalleryDao
 
     abstract fun bookingAttemptDao():BookingDao
+
+
+    // PHOTO PASS
+    abstract fun photoCodesDao(): PhotoCodesDao
 
 
     companion object {

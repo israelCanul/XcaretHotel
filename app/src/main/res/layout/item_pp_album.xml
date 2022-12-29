@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="listItemViewModel"
+            type="com.xcaret.xcaret_hotel.view.photopass.domain.AlbumList" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:onClick='@{(v)-> listItemViewModel.onListItemViewClickListener.onClick(v, listItemViewModel.adapterPosition) }'>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorHeader"
+            android:paddingTop="@dimen/separator"
+            android:paddingBottom="@dimen/separator"
+            android:visibility="@{listItemViewModel.title ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txt_code_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_dx"
+                android:text="@{'#' + listItemViewModel.code}"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_unlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@{( @string/purchaseTotalHeadera + ' ' + listItemViewModel.totalPurchase) + ' ' +(@string/purchaseTotalHeaderb + ' ' +(listItemViewModel.totalPurchase - listItemViewModel.totalUnlock)) }"
+                android:textSize="12sp"
+                android:visibility="@{(listItemViewModel.totalPurchase - listItemViewModel.totalUnlock) >= 1 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txt_code_download"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/albumHeight"
+            android:layout_below="@id/headerLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="@{listItemViewModel.valid ? View.VISIBLE:View.GONE}"
+            app:cardCornerRadius="@dimen/radius"
+            app:cardElevation="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgAlbum"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/todo"
+                    android:scaleType="centerCrop"
+                    android:src="@{`album_` + listItemViewModel.parkID, default=@drawable/album_8}" />
+
+                <ImageView
+                    android:id="@+id/imglock"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_black_lock_photos"
+                    android:contentDescription="@string/todo"
+                    android:visibility="@{listItemViewModel.unlock == true ? View.GONE : View.VISIBLE}" />
+
+                <ImageView
+                    android:id="@+id/iconlock"
+                    android:layout_width="@dimen/iconCornersize"
+                    android:layout_height="@dimen/iconCornersize"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/margin_dx"
+                    android:layout_marginEnd="@dimen/margin_dx"
+                    android:background="@drawable/ic_lock"
+                    android:contentDescription="@string/todo"
+                    android:visibility="@{listItemViewModel.unlock == true ? View.GONE : View.VISIBLE}" />
+
+                <Button
+                    android:id="@+id/btnFree"
+                    android:layout_width="90dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/margin_dx"
+                    android:background="@drawable/gratis"
+                    android:padding="2dp"
+                    android:text="@string/lbl_free"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="@{(listItemViewModel.parkID == 8 || listItemViewModel.parkID == 11) ? View.VISIBLE : View.GONE}" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/albumTraslucent"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/shape_black_gradient_photos">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="@dimen/margin_dx"
+                        android:layout_marginEnd="@dimen/margin_dx">
+
+                        <LinearLayout
+                            android:id="@+id/cont_total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_dx"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:id="@+id/txt_total_media"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@{listItemViewModel.totalMedia.toString()}"
+                                android:textColor="@android:color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/lbl_photo"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/separator"
+                            android:layout_width="1dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="@dimen/margin_dx"
+                            android:layout_marginEnd="@dimen/margin_dx"
+                            android:layout_marginBottom="@dimen/margin_dx"
+                            android:background="@color/colorWhite"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cont_total" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_dx"
+                            android:text="@string/lbl_visit_date"
+                            android:textColor="@color/colorWhite"
+                            app:layout_constraintBottom_toTopOf="@+id/txt_visitDate"
+                            app:layout_constraintStart_toEndOf="@+id/separator" />
+
+                        <TextView
+                            android:id="@+id/txt_visitDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_dx"
+                            android:layout_marginBottom="@dimen/margin_dx"
+                            android:text="@{listItemViewModel.visitDate}"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/separator" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:visibility="@{listItemViewModel.statusExpiresDate == 1 ? View.GONE:View.VISIBLE}"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_visitDate"
+                            app:layout_constraintStart_toEndOf="@+id/textView"
+                            app:layout_constraintTop_toTopOf="@+id/textView">
+
+                            <ImageView
+                                android:id="@+id/ivWarningFotos"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/todo"
+                                android:src="@drawable/ic_warning_foto"
+                                android:visibility="@{listItemViewModel.showStatus ? View.VISIBLE:View.GONE}" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/logo_park"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_dx"
+                            android:contentDescription="@string/todo"
+                            android:src="@{`logo_` + listItemViewModel.parkID, default=@drawable/logo_8}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvAlbumStatus"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="@{listItemViewModel.showStatus ? View.VISIBLE:View.GONE}"
+            app:cardCornerRadius="@dimen/radius"
+            app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardAlbum">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@{listItemViewModel.statusExpiresDate == 1 ? @color/photoStatusGreen:@color/photoStatusYellow}"
+                android:gravity="center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="3dp"
+                    android:text="@{listItemViewModel.statusExpiresDate == 1 ? (@string/lbl_validate_photopassa + ` ` + listItemViewModel.totalExpiresDate() + ` `+@string/lbl_validate_photopassb ):(@string/lbl_validate_day_photopass + ` ` + listItemViewModel.expiresDate + ` ` + @string/lbl_validate_day_photopass_download) }"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardExpirateAlbum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headerLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="@{listItemViewModel.valid ? View.GONE:View.VISIBLE}"
+            app:cardCornerRadius="@dimen/radius"
+            app:cardElevation="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/photoStatusGreey">
+
+                <TextView
+                    android:id="@+id/tvExpirateDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_dx"
+                    android:text="@{listItemViewModel.visitDate}"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tvTitleExpirateDate"
+                    app:layout_constraintStart_toStartOf="@+id/tvTitleExpirateDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitleExpirateDate" />
+
+                <TextView
+                    android:id="@+id/tvTitleExpirateDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/lbl_visit_date"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvContentExpirateDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_expirate_photopass"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivExpirateLogo"
+                    app:layout_constraintStart_toEndOf="@+id/tvTitleExpirateDate"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivExpirateLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/todo"
+                    android:src="@{`logo_` + listItemViewModel.parkID, default=@drawable/logo_8}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

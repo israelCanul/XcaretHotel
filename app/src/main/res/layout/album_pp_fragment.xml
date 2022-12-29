@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="albumPpViewModel"
+            type="com.xcaret.xcaret_hotel.view.photopass.vm.AlbumPPViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/clBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_foto"
+        tools:context=".view.photopass.ui.AlbumPPFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/generalContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:color="@color/colorBackground">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPhoto"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:elevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/toolbarTopPhotos"
+                    android:layout_alignParentTop="true"
+                    app:elevation="4dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                    <TextView
+                        android:id="@+id/textBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="@dimen/margin_dx"
+                        android:layout_marginTop="@dimen/backTopPhotos"
+                        android:drawableStart="@drawable/ic_regresar_photos"
+                        android:drawablePadding="@dimen/separator"
+                        android:elevation="@dimen/elevation"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/toolbarTitle"
+                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/backTopPhotos"
+                        android:text="@{albumPpViewModel.lblTitleAlbums}"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <TextView
+                android:id="@+id/txtIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_marginEnd="80dp"
+                android:gravity="center"
+                android:visibility="@{albumPpViewModel.albuma.size() == 0 ? View.VISIBLE : View.GONE }"
+                android:text="@{albumPpViewModel.lblLeyendNotAlbums}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+            <TextView
+                android:id="@+id/txtNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="60dp"
+                android:gravity="center"
+                android:visibility="@{albumPpViewModel.albuma.size() == 0 ? View.VISIBLE : View.GONE  }"
+                android:text="@{albumPpViewModel.lblNotePhoto + ` ` + albumPpViewModel.lblInfoNotePhoto}"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/toolbarTopPhotos"
+                android:layout_marginBottom="@dimen/gallery_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPpAlbum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_pp_album"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relBottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/gallery_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/margin_dx"
+                    tools:ignore="UselessParent">
+
+
+                    <EditText
+                        android:id="@+id/txtPhotoCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_dx"
+                        android:layout_marginEnd="70dp"
+                        android:hint="@{albumPpViewModel.lblPlaceHolderCode}"
+                        android:inputType="textVisiblePassword"
+                        android:maxLength="15"
+                        app:backgroundTint="@color/border_colorMenu" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabValidate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/navigation"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="16dp"
+            android:enabled="false"
+            android:layout_marginBottom="@dimen/margin_dx"
+            app:backgroundTint="@color/colorDisabled"
+            app:borderWidth="0dp"
+            app:elevation="@dimen/elevation"
+            app:fabSize="mini"
+            app:pressedTranslationZ="10dp"
+            app:srcCompat="@drawable/ic_paloma" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

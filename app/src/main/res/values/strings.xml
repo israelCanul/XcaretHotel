@@ -614,4 +614,19 @@
     <string name="rkey_lbl_invited_events">lbl_invited_events</string>
 
 
+    <!-- Strings for photo pass -->
+    <string name="todo">TODO</string>
+    <string name="lbl_free">Included</string>
+    <string name="lbl_photo">Photos</string>
+
+    <string name="purchaseTotalHeadera">You bought</string>
+    <string name="purchaseTotalHeaderb">parks.There are</string>
+    <string name="purchaseTotal"><![CDATA[You bought <b>%1$d parks</b>. There are <b>%2$d</b> ]]></string>
+    <!-- PhotoPass -->
+    <string name="lbl_validate_day_photopass">Your photographs are close to winning:</string>
+    <string name="lbl_validate_day_photopass_download">¡Downloads!</string>
+    <string name="lbl_validate_photopassa">You are</string>
+    <string name="lbl_validate_photopassb">days from your visit to download your photographs.</string>
+    <string name="lbl_expirate_photopass">Your photographs expired.</string>
+
 </resources>

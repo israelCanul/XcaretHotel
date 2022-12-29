@@ -342,5 +342,15 @@
     <color name="colorPhotoBttom">#80000000</color>
     <color name="colorPhotoActionBttom">#66000000</color>
     <color name="colorPhotoDisabled">#AAA7A7</color>
+    <color name="colorDisabled">#C5C1C1</color>
+    <color name="border_colorMenu">#4E75A3</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorHeader">#ebebeb</color>
+    <color name="white">#ffffffff</color>
+    <!-- StatusPhotos -->
+    <color name="photoStatusYellow">#FFF07A</color>
+    <color name="photoStatusGreen">#C4FFB9</color>
+    <color name="photoStatusGreey">#BFBFBF</color>
 
 </resources>
