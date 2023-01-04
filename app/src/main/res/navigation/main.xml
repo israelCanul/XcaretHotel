@@ -156,6 +156,9 @@
             app:destination="@id/FAQsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_menuFragment_to_albumPPFragment"
+            app:destination="@id/albumPPFragment" />
     </fragment>
 
     <fragment
@@ -438,6 +441,10 @@
             app:enterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
     </fragment>
+    <fragment
+        android:id="@+id/albumPPFragment"
+        android:name="com.xcaret.xcaret_hotel.photopass.ui.AlbumPPFragment"
+        android:label="AlbumPPFragment" />
 
     <!--app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"

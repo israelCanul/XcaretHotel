@@ -5,7 +5,7 @@
     <data>
         <import type="android.view.View" />
         <variable name="listItemViewModel"
-            type="com.xcaret.xcaret_hotel.view.photopass.domain.AlbumList" />
+            type="com.xcaret.xcaret_hotel.photopass.domain.AlbumList" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

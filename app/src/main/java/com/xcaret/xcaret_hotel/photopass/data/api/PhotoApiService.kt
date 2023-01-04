@@ -1,7 +1,7 @@
-package com.xcaret.xcaret_hotel.view.photopass.data.api
+package com.xcaret.xcaret_hotel.photopass.data.api
 
 import com.google.gson.JsonObject
-import com.xcaret.xcaret_hotel.view.photopass.data.config.Constants
+import com.xcaret.xcaret_hotel.photopass.data.config.Constants
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

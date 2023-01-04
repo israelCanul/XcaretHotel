@@ -38,6 +38,7 @@ import com.xcaret.xcaret_hotel.view.general.ui.DialogSnack
 import com.xcaret.xcaret_hotel.view.general.ui.LoadingDialogFragment
 import com.xcaret.xcaret_hotel.view.menu.vm.ProfileViewModel
 import com.xcaret.xcaret_hotel.view.security.ui.DialogEnterCode
+import kotlinx.android.synthetic.main.item_pp_album.*
 import kotlinx.android.synthetic.main.profile_fragment.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.support.v4.runOnUiThread
@@ -212,6 +213,7 @@ class ProfileFragment: BaseFragmentDataBinding<ProfileViewModel, ProfileFragment
         btnBack.onClick {
             confirmBack()
         }
+
 
         onBackPressed {
             confirmBack()

@@ -1,4 +1,4 @@
-package com.xcaret.xcaret_hotel.view.photopass.data.entity
+package com.xcaret.xcaret_hotel.photopass.data.entity
 
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties

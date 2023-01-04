@@ -1,4 +1,4 @@
-package com.xcaret.xcaret_hotel.view.photopass.data.api
+package com.xcaret.xcaret_hotel.photopass.data.api
 
 import android.graphics.Bitmap
 import android.net.Uri

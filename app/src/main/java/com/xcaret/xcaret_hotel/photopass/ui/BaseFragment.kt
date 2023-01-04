@@ -1,4 +1,4 @@
-package com.xcaret.xcaret_hotel.view.photopass.ui
+package com.xcaret.xcaret_hotel.photopass.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

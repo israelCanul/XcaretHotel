@@ -7,7 +7,7 @@
     <data>
         <import type="android.view.View" />
         <variable name="albumPpViewModel"
-            type="com.xcaret.xcaret_hotel.view.photopass.vm.AlbumPPViewModel" />
+            type="com.xcaret.xcaret_hotel.photopass.vm.AlbumPPViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_foto"
-        tools:context=".view.photopass.ui.AlbumPPFragment">
+        tools:context=".photopass.ui.AlbumPPFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/generalContainer"

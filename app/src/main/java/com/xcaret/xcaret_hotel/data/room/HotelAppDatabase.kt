@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import com.xcaret.xcaret_hotel.BuildConfig
 import com.xcaret.xcaret_hotel.data.room.dao.*
 import com.xcaret.xcaret_hotel.domain.*
-import com.xcaret.xcaret_hotel.view.photopass.data.room.dao.PhotoCodesDao
-import com.xcaret.xcaret_hotel.view.photopass.domain.AlbumList
-import com.xcaret.xcaret_hotel.view.photopass.domain.PhotoCodes
+import com.xcaret.xcaret_hotel.photopass.data.room.dao.PhotoCodesDao
+import com.xcaret.xcaret_hotel.photopass.domain.AlbumList
+import com.xcaret.xcaret_hotel.photopass.domain.PhotoCodes
 
 @Database(entities = [
     Airline::class,

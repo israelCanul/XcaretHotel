@@ -2,6 +2,8 @@ package com.xcaret.xcaret_hotel
 
 import android.app.Application
 import android.content.Context
+import android.os.Debug
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode
@@ -38,6 +40,9 @@ class HotelXcaretApp: Application() {
         FirebaseDatabase.getInstance(BuildConfig.DBCore).setPersistenceEnabled(true)
         FirebaseDatabase.getInstance(BuildConfig.DBReservations).setPersistenceEnabled(true)
         FirebaseDatabase.getInstance(FirebaseReference.FB_Security).setPersistenceEnabled(true)
+        var y = FirebaseDatabase.getInstance(FirebaseReference.FB_Photo_Pass).setPersistenceEnabled(true)
+
+        Log.i("Firebase Phot", y.toString())
     }
 
     private fun setupTheme(){

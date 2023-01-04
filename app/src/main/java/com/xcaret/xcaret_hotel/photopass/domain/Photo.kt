@@ -1,4 +1,4 @@
-package com.xcaret.xcaret_hotel.view.photopass.domain
+package com.xcaret.xcaret_hotel.photopass.domain
 
 import android.util.Log
 import androidx.room.ColumnInfo

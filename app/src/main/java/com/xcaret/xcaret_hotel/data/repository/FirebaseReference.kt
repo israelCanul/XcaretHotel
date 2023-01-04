@@ -57,4 +57,11 @@ object FirebaseReference {
     //region reservation
     const val RESERVATIONS = "reservations"
     //endregion
+
+
+    //    photo pass
+    const val FB_Photo_Pass = "https://xcaretftvym2017photos.firebaseio.com"
+    val PHOTOCODES_CHILD = "/photocodes/"
+    val PHOTOUSERS_CHILD = "/photousers/"
+    val TICKETS_CHILD = "/tickets/"
 }

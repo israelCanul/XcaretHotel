@@ -1,9 +1,9 @@
-package com.xcaret.xcaret_hotel.view.photopass.data.room.dao
+package com.xcaret.xcaret_hotel.photopass.data.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.xcaret.xcaret_hotel.view.photopass.domain.AlbumList
-import com.xcaret.xcaret_hotel.view.photopass.domain.PhotoCodes
+import com.xcaret.xcaret_hotel.photopass.domain.AlbumList
+import com.xcaret.xcaret_hotel.photopass.domain.PhotoCodes
 
 @Dao
 interface PhotoCodesDao{

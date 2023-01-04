@@ -1,4 +1,4 @@
-package com.xcaret.xcaret_hotel.view.photopass.data.api
+package com.xcaret.xcaret_hotel.photopass.data.api
 
 import com.google.gson.JsonObject
 import io.reactivex.Single

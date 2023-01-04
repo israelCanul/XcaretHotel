@@ -131,6 +131,9 @@ class MenuFragment: BaseFragmentDataBinding<MenuViewModel, MenuFragmentBinding>(
             }else _parentActivity?.popBackStack()
         }
 
+        optPhoto.onClick {
+            _parentActivity?.navigate(R.id.action_menuFragment_to_albumPPFragment)
+        }
         optMyReservations.onClick {
             _parentActivity?.navigate(R.id.action_menuFragment_to_myReservationFragment)
         }
