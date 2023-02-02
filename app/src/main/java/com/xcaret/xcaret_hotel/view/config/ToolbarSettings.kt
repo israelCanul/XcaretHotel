@@ -33,7 +33,8 @@ object ToolbarUtils {
         FragmentTags.Faq.value to ToolbarSettings(showToolbar = false, title = HotelXcaretApp.mContext.getString(R.string.rkey_frecuently_asked_question), showBottomNav = false),
         FragmentTags.FaqsDetail.value to ToolbarSettings(showToolbar = false, title = HotelXcaretApp.mContext.getString(R.string.rkey_about_my_reservation), showBottomNav = false),
         FragmentTags.EventList.value to ToolbarSettings(showToolbar = true, title = HotelXcaretApp.mContext.getString(R.string.rkey_lbl_title_event), showBottomNav = false),
-        FragmentTags.EventDetail.value to ToolbarSettings(showToolbar = true, title = HotelXcaretApp.mContext.getString(R.string.rkey_lbl_detail_event), showBottomNav = false)
+        FragmentTags.EventDetail.value to ToolbarSettings(showToolbar = true, title = HotelXcaretApp.mContext.getString(R.string.rkey_lbl_detail_event), showBottomNav = false),
+        FragmentTags.PhotoPass.value to ToolbarSettings(false, title = HotelXcaretApp.mContext.getString(R.string.lbl_photo), bgResource = R.color.colorBackground1),
     )
 }
 

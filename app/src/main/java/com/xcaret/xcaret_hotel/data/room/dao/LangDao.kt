@@ -7,7 +7,9 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 import com.xcaret.xcaret_hotel.HotelXcaretApp
 import com.xcaret.xcaret_hotel.domain.*
 import com.xcaret.xcaret_hotel.domain.LangRestaurantDetail
+import com.xcaret.xcaret_hotel.photopass.domain.DefaultPhotoLangLabel
 import com.xcaret.xcaret_hotel.view.config.Language
+import java.util.*
 
 @Dao
 abstract class LangActivityDao: BaseLangDao<LangActivity>(LangActivity::class.simpleName ?: "")
@@ -61,6 +63,9 @@ abstract class LangLabelDao: BaseLangDao<LangLabel>(LangLabel::class.simpleName 
 
     @Query("SELECT * FROM LangLabel l WHERE parent_uid = :key AND lang_code = :lang")
     abstract fun findLabelOutLive(key: String, lang: String = Language.getLangCode(HotelXcaretApp.mContext)): LangLabel?
+
+    @Query("SELECT * FROM LangLabel dl WHERE dl.parent_uid in (:label) AND dl.lang_code = :lang")
+    abstract fun getLangByLabelLive(label: List<String>, lang: String = Locale.getDefault().language ): LiveData<List<LangLabel>>
 
 }
 

@@ -123,4 +123,7 @@
     <dimen name="albumHeight">160dp</dimen>
     <dimen name="iconCornersize">36dp</dimen>
     <dimen name="albumTraslucent">80dp</dimen>
+    <integer name="staggeredGridLayoutExt">450</integer>
+    <integer name="staggeredGridLayoutMin">300</integer>
+    <integer name="staggeredGridLayoutMax">400</integer>
 </resources>

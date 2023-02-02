@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:scrollbars="none"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_pp_album"/>
+                    tools:listitem="@layout/item_pp_album" />
 
             </RelativeLayout>
 

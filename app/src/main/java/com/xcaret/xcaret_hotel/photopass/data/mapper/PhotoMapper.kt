@@ -3,12 +3,14 @@ package com.xcaret.xcaret_hotel.photopass.data.mapper
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.gson.Gson
-import com.xcaret.xcaret_hotel.data.mapper.FirebaseMapper
+
+import com.xcaret.xcaret_hotel.photopass.data.entity.LangPhotoLabelEntity
 import com.xcaret.xcaret_hotel.photopass.data.entity.PhotoCodesEntity
 import com.xcaret.xcaret_hotel.photopass.domain.AlbumList
+import com.xcaret.xcaret_hotel.photopass.domain.DefaultPhotoLangLabel
 import com.xcaret.xcaret_hotel.photopass.domain.PhotoCodes
 
-class PhotoUserMapper: FirebaseMapper<PhotoCodesEntity, PhotoCodes>(){
+class PhotoUserMapper: FirebasePhotoMapperSingleObject<PhotoCodesEntity, PhotoCodes>(){
     private var gson = Gson()
 
 
@@ -42,8 +44,17 @@ class PhotoUserMapper: FirebaseMapper<PhotoCodesEntity, PhotoCodes>(){
     }
 }
 
-class UserPhotoMapper: FirebaseMapper<Any, String>(){
+class UserPhotoMapper: FirebasePhotoMapper<Any, String>(){
     override fun map(from: Any?, key: String?): String {
         return key?: ""
+    }
+}
+class DefaultPhotoLangMapper: FirebasePhotoMapper<LangPhotoLabelEntity, DefaultPhotoLangLabel>() {
+    override fun map(from: LangPhotoLabelEntity?, key: String?): DefaultPhotoLangLabel {
+        val defaultLang = DefaultPhotoLangLabel()
+        defaultLang.uid = key!!
+        defaultLang.lbl_key = from?.lbl_key
+        defaultLang.name = from?.name
+        return defaultLang
     }
 }

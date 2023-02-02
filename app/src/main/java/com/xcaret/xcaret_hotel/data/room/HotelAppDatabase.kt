@@ -7,8 +7,10 @@ import androidx.room.RoomDatabase
 import com.xcaret.xcaret_hotel.BuildConfig
 import com.xcaret.xcaret_hotel.data.room.dao.*
 import com.xcaret.xcaret_hotel.domain.*
+import com.xcaret.xcaret_hotel.photopass.data.room.dao.DefaultPhotoLangLabelDao
 import com.xcaret.xcaret_hotel.photopass.data.room.dao.PhotoCodesDao
 import com.xcaret.xcaret_hotel.photopass.domain.AlbumList
+import com.xcaret.xcaret_hotel.photopass.domain.DefaultPhotoLangLabel
 import com.xcaret.xcaret_hotel.photopass.domain.PhotoCodes
 
 @Database(entities = [
@@ -68,6 +70,7 @@ import com.xcaret.xcaret_hotel.photopass.domain.PhotoCodes
     LangDestinationActivity::class,
     LangDestination::class,
     PhotoCodes::class, AlbumList::class,// se agrega para el modulo de photo pass
+    DefaultPhotoLangLabel::class,
 ], version = BuildConfig.VERSION_CODE, exportSchema = false)
 
 abstract class HotelAppDatabase: RoomDatabase(){
@@ -139,6 +142,7 @@ abstract class HotelAppDatabase: RoomDatabase(){
 
     // PHOTO PASS
     abstract fun photoCodesDao(): PhotoCodesDao
+    abstract fun defaultPhotoLangLabelDao(): DefaultPhotoLangLabelDao
 
 
     companion object {

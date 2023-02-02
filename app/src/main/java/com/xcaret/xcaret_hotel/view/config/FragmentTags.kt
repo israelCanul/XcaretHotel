@@ -31,5 +31,6 @@ enum class FragmentTags(val value: String) {
     Faq("FAQsFragment"),
     FaqsDetail("FAQsDetailFragment"),
     EventList("EventListFragment"),
-    EventDetail("EventDetailFragment")
+    EventDetail("EventDetailFragment"),
+    PhotoPass("AlbumPPFragment")
 }

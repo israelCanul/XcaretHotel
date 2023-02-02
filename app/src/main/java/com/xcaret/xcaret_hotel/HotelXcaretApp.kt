@@ -2,9 +2,6 @@ package com.xcaret.xcaret_hotel
 
 import android.app.Application
 import android.content.Context
-import android.os.Debug
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode
 import com.amplifyframework.AmplifyException
@@ -14,8 +11,8 @@ import com.amplifyframework.core.AmplifyConfiguration
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 import com.xcaret.xcaret_hotel.data.repository.FirebaseReference
+import com.xcaret.xcaret_hotel.photopass.data.repository.SingleFirebaseDatabaseRepository.Companion.initializeBDXcaret
 import com.xcaret.xcaret_hotel.view.config.LogHX
-import com.xcaret.xcaret_hotel.view.config.MarketingCloud
 import com.xcaret.xcaret_hotel.view.config.Session
 import com.xcaret.xcaret_hotel.view.config.Settings
 import java.util.*
@@ -40,9 +37,8 @@ class HotelXcaretApp: Application() {
         FirebaseDatabase.getInstance(BuildConfig.DBCore).setPersistenceEnabled(true)
         FirebaseDatabase.getInstance(BuildConfig.DBReservations).setPersistenceEnabled(true)
         FirebaseDatabase.getInstance(FirebaseReference.FB_Security).setPersistenceEnabled(true)
-        var y = FirebaseDatabase.getInstance(FirebaseReference.FB_Photo_Pass).setPersistenceEnabled(true)
 
-        Log.i("Firebase Phot", y.toString())
+        initializeBDXcaret(HotelXcaretApp.mContext)// se inicializa la BD de xcaret desde Single DatabaseRepository
     }
 
     private fun setupTheme(){
@@ -53,7 +49,6 @@ class HotelXcaretApp: Application() {
 
     private fun setupAmplify(){
         try {
-
             val config = AmplifyConfiguration.builder(applicationContext)
                 .devMenuEnabled(false)
                 .build()
